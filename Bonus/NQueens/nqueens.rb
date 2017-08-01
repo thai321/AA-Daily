@@ -5,7 +5,6 @@ class NQueens
   def initialize(queens)
     @numQueens = queens
     @chessTable = make_2d_array(@numQueens)
-    # @chessTable[0] += ['a']
   end
 
   def solve
@@ -58,8 +57,8 @@ class NQueens
 
     while(i < @numQueens && j >= 0)
       return false if @chessTable[i][j] == 'Q'
-      i +=1
-      j -=1
+      i += 1
+      j -= 1
     end
 
     true # valid move
