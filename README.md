@@ -1,5 +1,12 @@
 # AA-Daily
 
+## Bonus
+- Maze
+- NQueens
+
+## HWs
+- Recursion
+
 ## W1D1
 - Enumerables
 - Ghost
