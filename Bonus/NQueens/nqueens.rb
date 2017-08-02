@@ -35,7 +35,6 @@ class NQueens
     return false
   end
 
-
   def is_place_valid?(rowIndex,colIndex)
 
     # Check all columns for the current row
