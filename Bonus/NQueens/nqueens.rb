@@ -46,8 +46,8 @@ class NQueens
 
     while(i >= 0 && j >= 0)
       return false if @chessTable[i][j] == 'Q'
-      i -=1
-      j -=1
+      i -= 1
+      j -= 1
     end
 
     # Check diagonal down left
