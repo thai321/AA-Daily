@@ -29,3 +29,12 @@
   - Greedy Make Change
   - Better Change (Coin Change Problem)
 - Word Chains
+
+## W1D4
+- HTML
+- Screwdoku
+- Mine Sweeper
+
+## W1D5
+- Poly Tree Node
+- Knight Travils
