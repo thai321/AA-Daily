@@ -722,3 +722,458 @@ describe "#merge_sort" do
   end
 end
 ```
+-------
+### My All
+```ruby
+class Array
+
+  def my_all?(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    if ( self.any? { |e| !prc.call(e) } )
+      return false
+    end
+    true
+  end
+end
+
+describe 'my_all' do
+  a= [1,2,3]
+
+  it "returns true if all elements match the block" do
+    expect(a.my_all? { |num| num > 0 }).to eq(true)
+  end
+
+  it "returns false if not all elementes match the block" do
+    expect(a.my_all? { |num| num > 1 }).to eq(false)
+  end
+end
+```
+------
+### My Any
+```ruby
+class Array
+
+  def my_any?(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    self.each { |el| return true if prc.call(el) }
+    false
+  end
+
+end
+
+describe 'my_any' do
+  a= [1,2,3]
+  it "returns true if any number matches the block" do
+    expect(a.my_any? { |num| num > 1 }).to eq(true)
+  end
+
+  it "returns false if no elementes match the block" do
+    expect(a.my_any? { |num| num == 4 }).to eq(false)
+  end
+end
+```
+------
+### My Each Hash
+```ruby
+class Hash
+
+  # Write a version of my each that calls a proc on each key, value pair
+  def my_each(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    self.keys.each do |k|
+      prc.call(k, self[k])
+    end
+  end
+
+end
+
+describe "my_each" do
+  a = {"a"=> 1, "b" => 2, "c" => 3}
+  res = ""
+  a.my_each{|key, v| v.times{res << key}}
+
+  it "Calls the proc on each key value pair" do
+    expect(res.chars.sort).to eq(["a","b","b","c","c","c"])
+  end
+end
+```
+------
+### My Each and My Each with Index
+
+```ruby
+class Array
+
+  def my_each(&prc)
+    prc ||= Proc.new { |x, y|  x <=> y }
+
+    self.length.times { |i| prc.call(self[i]) }
+  end
+
+  def my_each_with_index(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    self.length.times { |i| prc.call(self[i], i) }
+  end
+
+end
+
+describe "my_each" do
+  res = []
+  [1,2,3].my_each{|el| res << 2*el}
+
+  it "It works for blocks" do
+    expect(res).to eq([2,4,6])
+  end
+end
+
+describe "my_each_with_index" do
+  res = []
+  [1,2,3].my_each_with_index{|el, i| res << 2*el + i}
+
+  it "It works for blocks that use both the index and element" do
+    expect(res).to eq([2,5,8])
+  end
+end
+```
+
+-----
+### My Flatten
+
+```ruby
+require 'byebug'
+
+class Array
+
+  # Takes a multi-dimentional array and returns a single array of all the elements
+  # [1,[2,3], [4,[5]]].my_controlled_flatten(1) => [1,2,3,4,5]
+  def my_flatten
+    arr = []
+
+    self.each do |el|
+      if el.is_a? Array
+        arr += el.my_flatten
+      else
+        arr << el
+      end
+    end
+
+    arr
+  end
+
+  # Write a version of flatten that only flattens n levels of an array.
+  # E.g. If you have an array with 3 levels of nested arrays, and run
+  # my_flatten(1), you should return an array with 2 levels of nested
+  # arrays
+  #
+  # [1,[2,3], [4,[5]]].my_controlled_flatten(1) => [1,2,3,4,[5]]
+  def my_controlled_flatten(n)
+    return self if n <= 0
+
+    arr = []
+
+    self.each do |el|
+      if (el.is_a? Array) && n > 0
+        arr += el.my_controlled_flatten(n - 1)
+      else
+        arr << el
+      end
+    end
+
+    arr
+  end
+end
+
+describe "my_flatten" do
+  it 'Flattens arrays correctly' do
+    expect([1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten).to eq([1, 2, 3, 4, 5, 6, 7, 8])
+  end
+end
+
+describe "my_controlled_flatten" do
+  it "Flattens an array the specified number of levels" do
+    expect([1,[2,3], [4,[5]], [[6,[7]]]].my_controlled_flatten(1)).to eq([1,2,3,4,[5], [6, [7]]])
+  end
+end
+```
+-----
+### My Inject
+```ruby
+
+class Array
+
+  # Monkey patch the Array class and add a my_inject method. If my_inject receives
+  # no argument, then use the first element of the array as the default accumulator.
+
+  def my_inject(accumulator = nil, &prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    i = 0
+    if accumulator.nil?
+      accumulator = self.first
+      i = 1
+    end
+
+    self[i..-1].each do |el|
+      accumulator = prc.call(accumulator, el)
+    end
+
+    accumulator
+  end
+end
+
+
+describe 'Array#my_inject' do
+
+  it 'calls the block passed to it' do
+    expect do |block|
+      ["test array"].my_inject(:dummy, &block)
+    end.to yield_control.once
+  end
+
+  it 'makes the first element the accumulator if no default is given' do
+    expect do |block|
+      ["el1", "el2", "el3"].my_inject(&block)
+    end.to yield_successive_args(["el1", "el2"], [nil, "el3"])
+  end
+
+  it 'yields the accumulator and each element to the block' do
+    expect do |block|
+      [1, 2, 3].my_inject(100, &block)
+    end.to yield_successive_args([100, 1], [nil, 2], [nil, 3])
+  end
+
+  it 'does NOT call the built in Array#inject or Array#reduce method' do
+    original_array = ["original array"]
+    expect(original_array).not_to receive(:inject)
+    expect(original_array).not_to receive(:reduce)
+    original_array.my_inject {}
+  end
+
+  it 'with accumulator, it correctly injects and returns answer' do
+    expect([1, 2, 3].my_inject(1) { |acc, x| acc + x }).to eq(7)
+    # expect([3, 3].my_inject(3) { |acc, x| acc * x }).to eq(27)
+  end
+
+  it 'without accumulator, it correctly injects and returns answer' do
+    expect([1, 2, 3].my_inject { |acc, x| acc + x }).to eq(6)
+    expect([3, 3].my_inject { |acc, x| acc * x }).to eq(9)
+  end
+end
+```
+
+------
+### My Join
+```ruby
+class Array
+
+  def my_join(str = "")
+    new_str = ""
+
+    self[0...-1].each { |char| new_str << char + str }
+
+    new_str + self.last
+  end
+
+end
+
+describe "my_join" do
+  a = [ "a", "b", "c", "d" ]
+
+  it "Joins an array if no argument is passed" do
+    expect(a.my_join).to eq("abcd")
+  end
+
+  it "Joins an array if an argument is passed" do
+    expect(a.my_join("$")).to eq("a$b$c$d")
+  end
+end
+```
+-----
+### My Merge
+
+```ruby
+class Hash
+
+  # Write a version of merge. This should NOT modify the original hash
+  def my_merge(hash2)
+    h = self.dup
+
+    hash2.each { |k, v| h[k] = v }
+
+    h
+  end
+
+end
+
+describe "my_merge" do
+  a = {a: 1, b: 2, c: 3}
+  b = {d: 4, e: 5}
+  c = {c: 33, d: 4, e: 5}
+
+  it "Merges 2 hashes and returns a hash" do
+      expect(a.my_merge(b)).to eq(a.merge(b))
+  end
+
+  it "Priortizes values from the hash being merged in" do
+      expect(a.my_merge(c)).to eq(a.merge(c))
+  end
+end
+```
+
+-----
+### My Reject
+```ruby
+class Array
+
+  def my_reject(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+
+    self.select { |el|  !prc.call(el) }
+  end
+
+end
+
+describe 'my_reject' do
+
+  a = [1, 2, 3]
+
+  it 'It correctly selects elements that do not match the passed in block' do
+    expect(a.my_reject { |num| num > 1 }).to eq([1])
+  end
+
+  it 'It returns all elements if no elements match the block' do
+    expect(a.my_reject { |num| num == 4 }).to eq([1,2,3])
+  end
+
+end
+```
+
+-----
+### My Reverse
+```ruby
+class Array
+
+  def my_reverse
+    return self if self.length == 1
+
+    self[1..-1].my_reverse.concat([self[0]])
+  end
+
+end
+
+describe "my_reverse" do
+  a = [ "a", "b", "c", "d" ]
+
+  it "Reverses an array" do
+    expect(a.my_reverse).to eq(a.reverse)
+  end
+end
+```
+
+------
+### My Rotate
+
+```ruby
+class Array
+
+  def my_rotate(num=1)
+    num = num % self.length
+    self[num..-1] + self[0...num]
+  end
+
+end
+
+describe "my_rotate" do
+  a = [ "a", "b", "c", "d" ]
+
+  it "Rotates the elements 1 position if no argument is passed in" do
+    expect(a.my_rotate).to eq(["b", "c", "d", "a"])
+  end
+
+  it "Rotates the elements correctly if an argument is passed in" do
+    expect(a.my_rotate(2)).to eq(["c", "d", "a", "b"])
+  end
+
+  it "Rotates the elements correctly if a negative argument is passed in" do
+    expect(a.my_rotate(-3)).to eq(["b", "c", "d", "a"])
+  end
+
+  it "Rotates the elements correctly for a large argument" do
+    expect(a.my_rotate(15)).to eq(["d", "a", "b", "c"])
+  end
+
+end
+```
+
+------
+### My Select
+```ruby
+class Array
+
+  def my_select(&prc)
+    arr = []
+
+    self.each { |el| arr << el if prc.call(el) }
+
+    arr
+  end
+
+end
+
+describe 'my_select' do
+
+  a = [1, 2, 3]
+
+  it 'It correctly selects elements according to the passed in block' do
+    expect(a.my_select { |num| num > 1 }).to eq([2, 3])
+  end
+
+  it 'It returns an empty array if there are no matches' do
+    expect(a.my_select { |num| num == 4 }).to eq([])
+  end
+
+end
+```
+-----
+### My Zip
+```ruby
+class Array
+
+  def my_zip(*arrs)
+    arr = []
+
+    self.each_with_index do |el, i|
+      subArr = [el]
+      arrs.each { |arr| subArr << arr[i] }
+      arr << subArr
+    end
+
+    arr
+  end
+
+end
+
+describe "my_zip" do
+  a = [ 4, 5, 6 ]
+  b = [ 7, 8, 9 ]
+
+  it 'Zips arrays of the same size' do
+    expect([1, 2, 3].my_zip(a, b)).to eq([[1, 4, 7], [2, 5, 8], [3, 6, 9]])
+  end
+
+  it 'Zips arrays of differnet sizes and adds nil appropriately' do
+    expect(a.my_zip([1,2], [8])).to eq([[4, 1, 8], [5, 2, nil], [6, nil, nil]])
+  end
+
+  c = [10, 11, 12]
+  d = [13, 14, 15]
+
+  it "Zips arrays with more elements than the original" do
+    expect([1, 2].my_zip(a, b, c, d)).to eq([[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]])
+  end
+
+end
+```
