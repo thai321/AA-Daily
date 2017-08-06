@@ -1418,6 +1418,7 @@ describe "real_words_in_string" do
   end
 end
 ```
+---------
 ### Recursive Sum
 ```ruby
 # Write a recursive method that returns the sum of all elements in an array
@@ -1439,7 +1440,7 @@ describe "#rec_sum" do
   end
 end
 ```
-
+---------
 ### String Include Key
 ```ruby
 require 'byebug'
