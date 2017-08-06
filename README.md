@@ -5,7 +5,17 @@
 - NQueens
 
 ## HWs
-- Recursion
+- W1D1 && W1D2: No HW :smile:
+- W1D3
+  - Recursion
+- W1D4
+  - Git Workflow
+- W1D5
+  - Create **this** repository
+  - DIY ADTs
+    - Stack, Queue, Map
+- W2D1
+  - Simon
 
 ## W1D1
 - Enumerables
@@ -13,7 +23,7 @@
 
 ## W1D2
 - Memory game
-- Sudoku
+- Sudoku (with the solver using backtracking)
 
 
 ## W1D3
@@ -38,3 +48,4 @@
 ## W1D5
 - Poly Tree Node
 - Knight Travils
+- Tic Tac Toe AI
