@@ -1177,3 +1177,283 @@ describe "my_zip" do
 
 end
 ```
+
+------
+## Permuations
+```ruby
+# Write a recursive method that returns all of the permutations of an array
+def permutations(array)
+  return [array]  if array.length == 1
+
+  result = []
+
+  array.each_index do |i|
+    subArrays = permutations(array[0...i] + array[(i + 1)..-1])
+    result += subArrays.map { |subArr| [array[i]] + subArr  }
+  end
+
+  result
+end
+
+describe "#permutations" do
+  it "returns all permutations of an array" do
+    expect(permutations([1, 2, 3])).to eq([[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]])
+  end
+end
+```
+
+-------
+### Pig Latinify
+```ruby
+# Write a method that translates a sentence into pig latin. You may want a helper method.
+# 'apple' => 'appleay'
+# 'pearl' => 'earlpay'
+# 'quick' => 'ickquay'
+def pig_latinify(sentence)
+  words = sentence.split(' ')
+  wordsArr = words.map { |word| translate(word) }
+  wordsArr.join(' ')
+end
+
+def translate(word)
+  vowel = %w(a e i o u qu)
+  i = 0
+  i += 1 until vowel.include?(word[i])
+
+  i += 1 if (word[i - 1] == 'q')
+  word[i..-1] +  word[0...i] + "ay"
+end
+
+describe "#pig_latinify" do
+  it "translates a word beginning with a vowel" do
+    s = pig_latinify("apple")
+    expect(s).to eq("appleay")
+  end
+
+  it "translates a word beginning with a consonant" do
+    s = pig_latinify("banana")
+    expect(s).to eq("ananabay")
+  end
+
+  it "translates a word beginning with two consonants" do
+    s = pig_latinify("cherry")
+    expect(s).to eq("errychay")
+  end
+
+  it "translates two words" do
+    s = pig_latinify("eat pie")
+    expect(s).to eq("eatay iepay")
+  end
+
+  it "translates a word beginning with three consonants" do
+    expect(pig_latinify("three")).to eq("eethray")
+  end
+
+  it "counts 'sch' as a single phoneme" do
+    s = pig_latinify("school")
+    expect(s).to eq("oolschay")
+  end
+
+  it "counts 'qu' as a single phoneme" do
+    s = pig_latinify("quiet")
+    expect(s).to eq("ietquay")
+  end
+
+  it "counts 'qu' as a consonant even when it's preceded by a consonant" do
+    s = pig_latinify("square")
+    expect(s).to eq("aresquay")
+  end
+
+  it "translates many words" do
+    s = pig_latinify("the quick brown fox")
+    expect(s).to eq("ethay ickquay ownbray oxfay")
+  end
+end
+```
+-----
+### Prime Factorization
+```ruby
+# Write a recursive function that returns the prime factorization of
+# a given number. Assume num > 1
+#
+# prime_factorization(12) => [2,2,3]
+def prime_factorization(num)
+  return [] if num == 1
+  return [num] if is_prime?(num)
+
+  i = 2
+  i += 1 until is_prime?(i) && (num % i) == 0
+
+  arr = [i]
+  arr += prime_factorization(num / i)
+end
+
+def is_prime?(num)
+  return true if num == 2
+
+  (2..Math.sqrt(num)).none? { |n| (num % n) == 0 }
+end
+
+describe "prime_factorization" do
+  it "handles an input of 2" do
+    expect(prime_factorization(2)).to eq([2])
+  end
+
+  it "Test case: 12" do
+    expect(prime_factorization(12).sort).to eq([2,2,3])
+  end
+
+  it "Test case: 600851475143" do
+    expect(prime_factorization(600851475143).sort).to eq([71,839,1471,6857])
+  end
+end
+```
+
+----
+
+### Prime
+```ruby
+# primes(num) returns an array of the first "num" primes.
+# You may wish to use an is_prime? helper method.
+
+def is_prime?(num)
+  return false if num == 0
+  return true if num == 2
+
+  (2..Math.sqrt(num)).none? { |n| (num % n) == 0 }
+end
+
+def primes(num)
+  return [] if num == 0
+  return [2] if num == 1
+
+  arr = [2]
+  i = 3
+  until (arr.length == num)
+    arr << i if is_prime?(i)
+    i += 1
+  end
+
+  arr
+end
+
+describe "#primes" do
+
+  it "returns first five primes in order" do
+    expect(primes(5)).to eq([2, 3, 5, 7, 11])
+  end
+
+  it "returns an empty array when asked for zero primes" do
+    expect(primes(0)).to eq([])
+  end
+end
+```
+
+-----
+### Real Words in String
+```ruby
+class String
+  # Returns an array of all the subwords of the string that appear in the
+  # dictionary argument. The method does NOT return any duplicates.
+
+  def real_words_in_string(dictionary)
+    arr = []
+
+    0.upto(self.length - 1) do |i|
+      dictionary.each do |word|
+        if !arr.include?(word) && self[i..-1].start_with?(word)
+          arr << word
+          i += word.length
+        end
+      end
+    end
+
+    arr
+  end
+end
+
+describe "real_words_in_string" do
+  it "finds a simple word" do
+    words = "asdfcatqwer".real_words_in_string(["cat", "car"])
+    expect(words).to eq(["cat"])
+  end
+
+  it "doesn't find words not in the dictionary" do
+    words = "batcabtarbrat".real_words_in_string(["cat", "car"])
+    expect(words).to be_empty
+  end
+
+  it "finds words within words" do
+    dictionary = ["bears", "ear", "a", "army"]
+    words = "erbearsweatmyajs".real_words_in_string(dictionary)
+    expect(words).to eq(["bears", "ear", "a"])
+  end
+end
+```
+### Recursive Sum
+```ruby
+# Write a recursive method that returns the sum of all elements in an array
+def rec_sum(nums)
+  return 0 if nums.empty?
+  return nums[0] if nums.length == 1
+
+  nums[0] + rec_sum(nums[1..-1])
+end
+
+describe "#rec_sum" do
+  it "returns the sums of all elements in an array" do
+    arr = [1,2,3,4]
+    expect(rec_sum(arr)).to eq(10)
+  end
+
+  it "returns 0 if the array is empty" do
+    expect(rec_sum([])).to eq(0)
+  end
+end
+```
+
+### String Include Key
+```ruby
+require 'byebug'
+# Write a recursive method that takes in a string to search and a key string.
+# Return true if the string contains all of the characters in the key
+# in the same order that they appear in the key.
+#
+# string_include_key?("cadbpc", "abc") => true
+# string_include_key("cba", "abc") => false
+def string_include_key?(string, key)
+  i = 0
+  string.chars.each do |char|
+    if key.include?(char) && char != key[i]
+      return false
+    elsif char == key[i]
+      i += 1
+    end
+  end
+
+  (i == key.length) ? true : false
+end
+
+describe "string_include_key" do
+  it "returns true for the same string" do
+    expect(string_include_key?("adblfci", "abc")).to eq(true)
+  end
+
+  it "handles keys with duplicate characters: case 1" do
+    expect(string_include_key?("adbblfci", "abbc")).to eq(true)
+  end
+
+  it "handles keys with duplicate characters: case 2" do
+    expect(string_include_key?("adbclfci", "abbc")).to eq(false)
+  end
+
+  it "returns false if the key characters are in the wrong order" do
+    expect(string_include_key?("dblfcia", "abc")).to eq(false)
+  end
+
+  it "returns false if the string doesn't contain the key" do
+    expect(string_include_key?("db", "abc")).to eq(false)
+  end
+
+end
+```
