@@ -26,8 +26,8 @@ class TicTacToeNode
   end
 
   def winning_node?(evaluator)
-    if @board.won?
-      # the game has a winner and current player is the winner
+    if @board.over?
+      # the game is a winner and current player is the winner
       @board.winner == evaluator
     elsif @next_mover_mark == evaluator
       # current player's turn, true if any child of current is winner
@@ -40,22 +40,26 @@ class TicTacToeNode
 
   # This method generates an array of all moves that can be made after
   # the current move.
+
   def children
-    arr = []; length = @board.rows.length
+    children = []; length = @board.rows.length
 
     (0...length).each do |x|
       (0...length).each do |y|
         pos = [x, y]
-        if @board[pos].nil?
-          next_mark = (@next_mover_mark == :x) ? :o : :x
+
+        if board[pos].nil?
           new_board = @board.dup
-          new_board[pos] = next_mark
-          kid = TicTacToeNode.new(new_board, next_mark, pos)
-          arr << kid
+          new_board[pos] = @next_mover_mark
+          next_mark = (@next_mover_mark == :x ? :o : :x)
+
+          child = TicTacToeNode.new(new_board, next_mark, pos)
+          children << child
         end
       end
     end
 
-    arr
+    children
   end
+
 end
