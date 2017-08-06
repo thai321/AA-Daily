@@ -2,6 +2,34 @@
 - From
 https://github.com/mallorybulkley/aa-practice-test-generator
 
+
+------
+### Base Converter
+```ruby
+# Write a recursive method that takes in a base 10 number n and
+# converts it to a base b number. Return the new number as a string
+#
+# E.g. base_converter(5, 2) == "101"
+# base_converter(31, 16) == "1f"
+DIGITS = ('0'..'9').to_a + ('a'..'f').to_a
+def base_converter(num, b)
+  return DIGITS[num] if num < b
+
+  base_converter(num/b, b) + DIGITS[num % b]
+end
+
+describe "#base_converter" do
+  it "converts a small number in binary" do
+    expect(base_converter(5, 2)).to eq("101")
+  end
+
+  it "converts a large number into base 16" do
+    expect(base_converter(1239449, 16)).to eq("12e999" || "12E999" )
+  end
+end
+```
+
+
 ------
 ### Binary Search
 ```ruby
