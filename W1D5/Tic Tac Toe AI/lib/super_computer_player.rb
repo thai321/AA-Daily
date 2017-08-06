@@ -2,6 +2,7 @@ require_relative 'tic_tac_toe_node'
 
 class SuperComputerPlayer < ComputerPlayer
   def move(game, mark)
+    current_node = TicTacToeNode.new(game.board)
   end
 end
 
