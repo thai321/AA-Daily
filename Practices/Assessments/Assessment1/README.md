@@ -1486,3 +1486,158 @@ describe "string_include_key" do
 
 end
 ```
+
+------
+### Sub-set
+```ruby
+#returns all subsets of an array
+def subsets(array)
+  return [[]] if array.empty?
+
+  subset = subsets(array[0...-1])
+  subset += subset.map { |arr| arr + [array.last] }
+  subset
+end
+
+describe 'subsets' do
+
+  it "Correctly returns all subsets of an array" do
+    expect(subsets([1, 2, 3])).to eq([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
+  end
+
+end
+```
+
+------
+### Symmetric Substrings
+
+```ruby
+class String
+
+  # Write a String#symmetric_substrings method that returns an array of substrings
+  # that are palindromes, e.g. "cool".symmetric_substrings => ["oo"]
+  # Only include substrings of length > 1.
+
+  def symmetric_substrings
+    length = self.length - 1
+    arr = []
+
+    (0..length-1).each do |i|
+      (i..length).each do |j|
+        str = self[i..j]
+        arr << str if str.length > 2 && palindromes?(str)
+      end
+    end
+    arr
+  end
+
+  def palindromes?(string)
+    string == string.reverse
+  end
+end
+
+describe "#symmetric_substrings" do
+
+  it "handles a simple example" do
+    expect("aba".symmetric_substrings).to match_array(["aba"])
+  end
+
+  it "handles two substrings" do
+    expect("aba1cdc".symmetric_substrings).to match_array(["aba", "cdc"])
+  end
+
+  it "handles nested substrings" do
+    expect("xabax".symmetric_substrings).to match_array(["aba", "xabax"])
+  end
+end
+
+```
+
+-----
+### Titleize
+```ruby
+# Write a method that capitalizes each word in a string like a book title
+# Do not capitalize words like 'a', 'and', 'of', 'over' or 'the'
+def titleize(title)
+  specical = %w(a and of over or the)
+
+  words_arr = title.split(" ").map do |word|
+    !specical.include?(word) ? word.capitalize : word
+  end
+
+  words_arr[0].capitalize! if specical.include?(words_arr[0])
+  words_arr.join(' ')
+end
+
+describe "titleize" do
+  it "capitalizes a word" do
+    expect(titleize("jaws")).to eq("Jaws")
+  end
+
+  it "capitalizes every word (aka title case)" do
+    expect(titleize("david copperfield")).to eq("David Copperfield")
+  end
+
+  it "doesn't capitalize 'little words' in a title" do
+    expect(titleize("war and peace")).to eq("War and Peace")
+  end
+
+  it "does capitalize 'little words' at the start of a title" do
+    expect(titleize("the bridge over the river kwai")).to eq("The Bridge over the River Kwai")
+  end
+end
+```
+
+-----
+### Two Sum
+```ruby
+class Array
+  # Write a method, `Array#two_sum`, that finds all pairs of positions where the
+  # elements at those positions sum to zero.
+
+  # NB: ordering matters. I want each of the pairs to be sorted smaller index
+  # before bigger index. I want the array of pairs to be sorted
+  # "dictionary-wise":
+  #   [0, 2] before [1, 2] (smaller first elements come first)
+  #   [0, 1] before [0, 2] (then smaller second elements come first)
+
+  def two_sum
+    length = self.length - 1
+    arr = []
+
+    (0..length - 1).each do |i|
+      ((i + 1)..length).each do |j|
+        arr << [i, j] if  (self[i] + self[j] == 0)
+      end
+    end
+
+    arr
+  end
+end
+
+describe "#two_sum" do
+  it "returns positions of pairs of numbers that add to zero" do
+    expect([5, 1, -7, -5].two_sum).to eq([[0, 3]])
+  end
+
+  it "finds multiple pairs" do
+    expect([5, -1, -5, 1].two_sum).to eq([[0, 2], [1, 3]])
+  end
+
+  it "finds pairs with same element" do
+    expect([5, -5, -5].two_sum).to eq([[0, 1], [0, 2]])
+  end
+
+  it "returns [] when no pair is found" do
+    expect([5, 5, 3, 1].two_sum).to eq([])
+  end
+
+  it "won't find spurious zero pairs" do
+    expect([0, 1, 2, 3].two_sum).to eq([])
+  end
+
+  it "will find real zero pairs" do
+    expect([0, 1, 2, 0].two_sum).to eq([[0, 3]])
+  end
+end
+```
