@@ -6,7 +6,7 @@ class Array
   def my_quick_sort(&prc)
     prc ||= Proc.new { |x, y| x <=> y }
 
-    return self if self.length < 1
+    return self if self.length <= 1
 
     pivot = self.first
 
