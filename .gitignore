@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 .byebug_history
 .DS_Store
+=======
+.DS_Store
+.byebug_history
+Gemfile.lock
+>>>>>>> 93fd0811a227bff02484ef8701a2b54d0b968be0
