@@ -25,7 +25,6 @@ class Board
   end
 
   def move_piece(start_pos, end_pos)
-    # byebug
     begin
       valid_move?(start_pos, end_pos)
     rescue ArgumentError => e

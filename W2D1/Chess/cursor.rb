@@ -33,7 +33,7 @@ MOVES = {
 
 class Cursor
 
-  attr_reader :cursor_pos, :board
+  attr_reader :cursor_pos, :board, :selected
 
   def initialize(cursor_pos, board)
     @cursor_pos = cursor_pos
@@ -45,6 +45,9 @@ class Cursor
     handle_key(key)
   end
 
+  def toggle_selected
+    @selected = !@selected
+  end
 
 
   private
@@ -81,8 +84,10 @@ class Cursor
   def handle_key(key)
     case key
     when :return, :space
+      toggle_selected
       return @cursor_pos
     when :left, :right, :up, :down
+      @selected = false
       update_pos(MOVES[key])
       return nil
     when :ctrl_c
@@ -90,7 +95,7 @@ class Cursor
     end
   end
 
-  def update_pos(diff) #diff is [x, y]
+  def update_pos(diff) #diff is [dx, dy]
     dx, dy = diff
     x, y = @cursor_pos[0], @cursor_pos[1]
     x_new = x + dx

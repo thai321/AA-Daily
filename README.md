@@ -15,7 +15,9 @@
   - DIY ADTs
     - Stack, Queue, Map
 - W2D1
-  - Simon
+  - Simon game
+- W2D2
+  - Mancala game
 
 ## W1D1
 - Enumerables
@@ -49,3 +51,8 @@
 - Poly Tree Node
 - Knight Travils
 - Tic Tac Toe AI
+
+## W2D1
+- Error Handling Fun Time (Employee and Manager)
+- Inheritance (Friend, Coffee, Fruit)
+- Chess :smile:

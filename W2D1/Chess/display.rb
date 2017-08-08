@@ -18,25 +18,36 @@ class Display
     end
   end
 
+  def color_at(pos)
+    if pos == @cursor.cursor_pos && @cursor.selected
+      { :background => :red }
+    elsif pos == @cursor.cursor_pos
+      { :background => :green }
+    elsif pos[0].even? && pos[1].even?
+      { :background => :white }
+    elsif pos[0].even? && pos[1].odd?
+      { :background => :black }
+    elsif pos[0].odd? && pos[1].even?
+      { :background => :black }
+    elsif pos[0].odd? && pos[1].odd?
+      { :background => :white }
+    end
+  end
+
   def render
     system('clear')
-    (0...Board::BOARD_SIZE).each do |i|
-      (0...Board::BOARD_SIZE).each do |j|
-        if [i,j] == @cursor.cursor_pos
-          print " #{board.grid[i][j]} ".colorize(:red)
-        else
-          print " #{board.grid[i][j]} "
-        end
+    @board.grid.each_with_index do |row, i|
+      row.each_with_index do |piece, j|
+        color = color_at([i,j])
+        print " #{board.grid[i][j]} ".colorize(color)
       end
       puts ""
     end
   end
+
 
 end
 
 b = Board.new
 game = Display.new(b)
 game.move_cursor
-
-# game.cursor.get_input
-  # game.render
