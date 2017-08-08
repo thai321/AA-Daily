@@ -44,8 +44,6 @@ class Display
       puts ""
     end
   end
-
-
 end
 
 b = Board.new

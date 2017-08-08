@@ -1,3 +1,5 @@
+require 'colorize'
+
 module SlidingPiece
 
   HORIZONTAL = [
@@ -24,30 +26,60 @@ module SlidingPiece
 end
 
 class Piece
-  attr_reader :type
+  attr_reader :type, :board
+  attr_accessor :pos
 
-  def initialize(type)
-    @type = type
+  def initialize(pos, board)
+    # @type = type
+    @pos = pos
+    @board = board
   end
 
   def to_s
-    @type.to_s
+    "#{symbol}"
+  end
+
+  def symbol
+    " A Symbol "
   end
 end
 
-class NullPiece < Piece
+class NullPiece
 
-  def initialize
-    super("-")
+  # include Singleton
+
+  # def initialize
+  #   # super("-")
+  # end
+
+  def symbol
+    "-"
+  end
+
+  def to_s
+    "#{symbol}".to_s
   end
 
 end
 
 class King < Piece
+
+  def symbol
+    "K"
+  end
+
+  def to_s
+    symbol.colorize(:color => :red )
+  end
 end
 
 class Queen < Piece
   include SlidingPiece
+
+  def symbol
+    "Q"
+  end
+
 end
 
 class Bishop < Piece
@@ -57,14 +89,27 @@ class Bishop < Piece
     # only diagonally (increase/decrease x and y by the same amount)
   end
 
+
+  def symbol
+    "B"
+  end
+
 end
 
 class Knight < Piece
+
+  def symbol
+    "N"
+  end
 
 end
 
 class Rook < Piece
   include SlidingPiece
+
+  def symbol
+    "R"
+  end
 
   def move_dirs
     # Move horizontally or vertically
@@ -73,4 +118,10 @@ class Rook < Piece
 end
 
 class Pawn < Piece
+
+
+  def symbol
+    "P"
+  end
+
 end

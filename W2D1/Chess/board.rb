@@ -6,22 +6,27 @@ class Board
   attr_reader :grid
 
   BOARD_SIZE = 8
-  BACK_ROW = %w(R N B Q K B N R)
-  FRONT_ROW = "P"
+  BACK_ROW = [ Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook ]
+  FRONT_ROW =
 
   def initialize
     @grid = Array.new(BOARD_SIZE) { Array.new(BOARD_SIZE, NullPiece.new)   }
     populate
-    # render
+    render
   end
 
   def populate
-    (0...BOARD_SIZE).each { |i| @grid[0][i] = Piece.new(BACK_ROW[i]) }
-    (0...BOARD_SIZE).each { |i| @grid[BOARD_SIZE - 1][i] = Piece.new(BACK_ROW[i]) }
 
-    (0...BOARD_SIZE).each { |i| @grid[1][i] = Piece.new(FRONT_ROW) }
-    (0...BOARD_SIZE).each { |i| @grid[BOARD_SIZE - 2][i] = Piece.new(FRONT_ROW) }
+    (0...BOARD_SIZE).each { |i| self.add(BACK_ROW[i], 0, i) }
+    (0...BOARD_SIZE).each { |i| self.add(Rook, 1, i) }
 
+    (0...BOARD_SIZE).each { |i| self.add(BACK_ROW[i], (BOARD_SIZE - 1), i) }
+    (0...BOARD_SIZE).each { |i| self.add(Rook, (BOARD_SIZE - 2), i) }
+
+  end
+
+  def add(piece_class, i, j)
+    @grid[i][j] = piece_class.new([i,j], self)
   end
 
   def move_piece(start_pos, end_pos)
@@ -50,7 +55,6 @@ class Board
     x, y = end_pos
 
     x_valid = x.between?(0,BOARD_SIZE-1)
-
     y_valid = y.between?(0,BOARD_SIZE-1)
     if !x_valid || !y_valid
       return raise ArgumentError.new("End position out of boundaries.")
