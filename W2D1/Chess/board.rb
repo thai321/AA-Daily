@@ -1,8 +1,5 @@
 require 'colorize'
 require 'byebug'
-# require_relative 'piece'
-# require_relative 'king'
-# require_relative 'null_piece'
 
 require_relative 'pieces'
 
@@ -26,12 +23,12 @@ class Board
   def populate
 
     (0...BOARD_SIZE).each { |i| self.add(BACK_ROW[i], 0, i, BLACK_CODES[i], :black) }
-    # (0...BOARD_SIZE).each { |i| self.add(Pawn, 1, i, BLACK_PAWN, :black) }
-    @grid[4][4] = Rook.new([4, 4], self, "\u2656", :white)
-    @grid[3][3] = Pawn.new([3, 3], self, "\u265F", :black)
+    (0...BOARD_SIZE).each { |i| self.add(Pawn, 1, i, BLACK_PAWN, :black) }
+    # @grid[4][4] = Rook.new([4, 4], self, "\u2656", :white)
+    # @grid[3][3] = Pawn.new([3, 3], self, "\u265F", :black)
 
     (0...BOARD_SIZE).each { |i| self.add(BACK_ROW[i], (BOARD_SIZE - 1), i, WHITE_CODES[i], :white) }
-    # (0...BOARD_SIZE).each { |i| self.add(Pawn, (BOARD_SIZE - 2), i, WHITE_PAWN, :white) }
+    (0...BOARD_SIZE).each { |i| self.add(Pawn, (BOARD_SIZE - 2), i, WHITE_PAWN, :white) }
 
   end
 
