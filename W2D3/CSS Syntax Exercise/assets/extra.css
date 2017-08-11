@@ -1,0 +1,31 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgba(203, 255, 7, 0.79);
+}
+
+h1 {
+  font-size: 38px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.ingredients-list {
+  list-style: square inside;
+}
+
+.directions-list {
+  list-style: simp-chinese-informal;
+}
+
+header > img {
+  width: 100px;
+}
+
+
+ul a {
+  text-decoration: none;
+  color: inherit;
+}

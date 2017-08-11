@@ -56,3 +56,11 @@
 - Error Handling Fun Time (Employee and Manager)
 - Inheritance (Friend, Coffee, Fruit)
 - Chess :smile:
+
+## W2D2
+- Continue on Chess :smile:
+
+## W2D3
+- CSS Syntax Exercise
+- First TDD Projects
+- Poker
