@@ -1,6 +1,8 @@
 require_relative 'stack'
 
 class MinMaxStack
+  attr_reader :store
+
   def initialize(store=[])
     @store = MyStack.new
   end
@@ -22,8 +24,8 @@ class MinMaxStack
   end
 
   def push(val)
-    min_value = empty? ? val : [max, val].min
-    max_value = empty? ? val : [min, val].max
+    min_value = empty? ? val : [min, val].min
+    max_value = empty? ? val : [max, val].max
 
     data = {
       val: val,
@@ -34,13 +36,16 @@ class MinMaxStack
     @store.push(data)
   end
 
-
   def size
     @store.size
   end
 
   def empty?
     @store.empty?
+  end
+
+  def show
+    @store.show
   end
 
 end

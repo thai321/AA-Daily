@@ -25,4 +25,10 @@ class StackQueue
   def empty?
     @stack_in.empty? && @stack_out.empty?
   end
+
+  def show
+    @store.each do |el|
+      print " #{el}, " 
+    end
+  end
 end

@@ -9,9 +9,9 @@ class MinMaxStackQueue
     @stack_out = MinMaxStack.new
   end
 
-  def display
-    p @stack_in
-    p @stack_out
+  def show_stack
+    puts "Stack IN: " , @stack_in.show
+    puts "Stack Out: " , @stack_out.show
   end
 
   def min

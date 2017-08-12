@@ -13,6 +13,7 @@ class HashMap
   end
 
   def set(key, val)
+    @store[key.hash % num_buckets ]
   end
 
   def get(key)
@@ -22,6 +23,7 @@ class HashMap
   end
 
   def each
+
   end
 
   # uncomment when you have Enumerable included
@@ -35,6 +37,10 @@ class HashMap
   alias_method :[], :get
   alias_method :[]=, :set
 
+  def [](key)
+    @store[key.hash % num_buckets].get(key)
+  end
+
   private
 
   def num_buckets
@@ -46,5 +52,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
+    @store[key.hash % num_buckets]
   end
 end

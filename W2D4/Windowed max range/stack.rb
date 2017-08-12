@@ -22,4 +22,11 @@ class MyStack
   def empty?
     @store.empty?
   end
+
+
+  def show
+    @store.each do |el|
+      print " #{el}, "
+    end
+  end
 end

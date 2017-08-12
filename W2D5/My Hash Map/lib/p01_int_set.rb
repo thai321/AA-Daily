@@ -1,14 +1,11 @@
-require 'byebug'
-
 class MaxIntSet
   def initialize(max)
-    @max = max
     @store = Array.new(max, false)
   end
 
   def insert(num)
-    raise "Out of bounds" if !is_valid?(num)
-    @store[num] = true
+    validate!(num)
+    @store[num] = true if !@store[num]
   end
 
   def remove(num)
@@ -22,17 +19,17 @@ class MaxIntSet
   private
 
   def is_valid?(num)
-    num.between?(0, @max)
+    num.between?(0, 49)
   end
 
   def validate!(num)
+    raise "Out of bounds" if !is_valid?(num)
   end
 end
 
-
 class IntSet
   def initialize(num_buckets = 20)
-    @store = Array.new(num_buckets) { Array.new }
+    @store = Array.new(num_buckets, [])
   end
 
   def insert(num)
@@ -62,7 +59,7 @@ class IntSet
 end
 
 class ResizingIntSet
-  attr_reader :count, :size , :store
+  attr_reader :count, :store
 
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
@@ -70,21 +67,23 @@ class ResizingIntSet
   end
 
   def insert(num)
-    resize! if @count == num_buckets
-
-    if !include?(num)
-      self[num] << num
-      @count += 1
-    end
+    resize! if count == num_buckets
+    return false if include?(num)
+    self[num] << num
+    @count += 1
+    true
   end
 
   def remove(num)
-    self[num].delete(num)
+    @count -= 1 if self[num].delete(num)
   end
 
   def include?(num)
-    return false if !self[num].include?(num)
-    true
+    self[num].include?(num)
+  end
+
+  def count
+    @count
   end
 
   private
@@ -99,13 +98,12 @@ class ResizingIntSet
   end
 
   def resize!
-    new_set = ResizingIntSet.new(num_buckets * 2)
-    @store.each_with_index do |bucket, i|
+    new_store = ResizingIntSet.new(num_buckets * 2)
+    @store.each do |bucket|
       bucket.each do |el|
-        new_set.insert(el)
+        new_store.insert(el)
       end
     end
-
-    @store = new_set.store
+    @store = new_store.store
   end
 end

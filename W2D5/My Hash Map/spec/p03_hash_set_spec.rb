@@ -1,5 +1,6 @@
 require 'rspec'
 require 'p03_hash_set'
+require 'byebug'
 
 describe HashSet do
   let(:set) { HashSet.new(8) }
@@ -27,7 +28,6 @@ describe HashSet do
 
       expect(set.include?("howdy")).to be(true)
       expect(set.include?(:howdy)).to be(false)
-
       expect(set.include?([])).to be(true)
       expect(set.include?([[]])).to be(false)
 
