@@ -26,6 +26,7 @@ class Node
 
     @next = nil
     @prev = nil
+    self
   end
 end
 
@@ -54,16 +55,13 @@ class LinkedList
   end
 
   def empty?
-    @head.next == @tail
+    @head.next == @tail # && @tail.prev == @head
   end
 
   def get(key)
     if include?(key)
-      current_node = @head
-
-      while current_node != nil
-        return current_node.val if current_node.key == key
-        current_node = current_node.next
+      self.each do |node|
+        return node.val if node.key == key
       end
     else
       nil
@@ -71,8 +69,8 @@ class LinkedList
   end
 
   def include?(key)
-
-    self.each do |node|
+    # byebug
+    each do |node|
       return true if node.key == key
     end
 
@@ -82,13 +80,26 @@ class LinkedList
   def append(key, val)
     new_node = Node.new(key, val)
 
-    prev_node = @tail.prev
-    prev_node.next = new_node
-    new_node.prev = prev_node
-    new_node.next = @tail
-    @tail.prev = new_node
+    # if empty?
+    #   @head.next, @tail.prev = new_node, new_node
+    #   new_node.next, new_node.prev = @tail, @head
+    # else
+    #   # prev_node = @tail.prev
+    #   # prev_node.next = new_node
+    #   # new_node.prev = prev_node
+    #   # new_node.next = @tail
+    #   # @tail.prev = new_node
+    #
+    #   new_node.prev, new_node.next = @tail.prev, @tail
+    #   @tail.prev, @tail.prev.next = new_node, new_node
+    # end
 
+    @tail.prev.next = new_node
+  new_node.prev = @tail.prev
+  new_node.next = @tail
+  @tail.prev = new_node
 
+    new_node
   end
 
   def update(key, val)
@@ -108,9 +119,6 @@ class LinkedList
 
       current_node = current_node.next until current_node.key == key
       current_node.remove
-
-    else
-      nil
     end
 
   end
@@ -118,7 +126,7 @@ class LinkedList
   def each
     current_node = @head.next
 
-    while current_node != @tail
+    until current_node == @tail
       yield current_node
       current_node = current_node.next
     end

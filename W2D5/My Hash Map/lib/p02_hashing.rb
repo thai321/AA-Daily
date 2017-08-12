@@ -18,7 +18,7 @@ class Array
         temp = el.hash
         sum += i + temp
       else
-        sum += i * el
+        sum += i * el.hash
       end
 
     end
