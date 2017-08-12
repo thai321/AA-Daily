@@ -111,4 +111,16 @@ class Board
       @grid[x][y].class == King && opponent_color != @grid[x][y].color
     end
   end
+
+  def checkmate?(color)
+    return false if !in_check(color)
+
+    pieces_color = all_pieces.select { |piece| piece.color == color }
+
+    pieces_color.all? { |piece| piece.valid_moves.empty?  }
+  end
+
+  def all_pieces
+    @grid.flaten.reject { |piece| piece.empty?  }
+  end
 end

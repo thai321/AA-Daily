@@ -24,4 +24,8 @@ class Piece
   def call_moves
     moves
   end
+
+  def empty?
+    self.is_a? NullPiece : true : false
+  end
 end
