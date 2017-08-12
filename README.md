@@ -5,7 +5,7 @@
 - NQueens
 
 ## HWs
-- W1D1 && W1D2: No HW :smile:
+- W1D1 & W1D2: No HW :smile:
 - W1D3
   - Recursion
 - W1D4
@@ -18,6 +18,13 @@
   - Simon game
 - W2D2
   - Mancala game
+- W2D3
+  - RSpec
+- W2D4
+  - Sorting Demo
+  - Big Octopus
+- W2D5
+  - LRU Cache
 
 ## W1D1
 - Enumerables
@@ -64,3 +71,14 @@
 - CSS Syntax Exercise
 - First TDD Projects
 - Poker
+
+## W2D4
+- CSS Advance Selectors
+- Execution Time Differences Algorithms
+- Anagrams
+- Two Sum
+- Windowed Max Range (MinMaxStackQueue)
+
+## W2D5
+- CSS Box Model
+- My Hash Map (LRU Cache)
