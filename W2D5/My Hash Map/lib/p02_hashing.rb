@@ -6,21 +6,9 @@ end
 
 class Array
   def hash
-    return 0 if self.empty?
-
     sum = 0
     self.each_with_index do |el, i|
-      temp = 0
-      if el.is_a? String
-        temp = el.to_s.ord
-        sum += i + temp
-      elsif el.is_a? Array
-        temp = el.hash
-        sum += i + temp
-      else
-        sum += i * el.hash
-      end
-
+      sum += (i * el.hash)
     end
 
     sum
@@ -33,7 +21,7 @@ class String
 
     sum = 0
     self.chars.each_with_index do |char, i|
-      sum += i * char.ord
+      sum += (i * char.ord)
     end
 
     sum

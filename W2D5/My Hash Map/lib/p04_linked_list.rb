@@ -55,7 +55,7 @@ class LinkedList
   end
 
   def empty?
-    @head.next == @tail # && @tail.prev == @head
+    @head.next == @tail && @tail.prev == @head
   end
 
   def get(key)
@@ -80,24 +80,10 @@ class LinkedList
   def append(key, val)
     new_node = Node.new(key, val)
 
-    # if empty?
-    #   @head.next, @tail.prev = new_node, new_node
-    #   new_node.next, new_node.prev = @tail, @head
-    # else
-    #   # prev_node = @tail.prev
-    #   # prev_node.next = new_node
-    #   # new_node.prev = prev_node
-    #   # new_node.next = @tail
-    #   # @tail.prev = new_node
-    #
-    #   new_node.prev, new_node.next = @tail.prev, @tail
-    #   @tail.prev, @tail.prev.next = new_node, new_node
-    # end
-
     @tail.prev.next = new_node
-  new_node.prev = @tail.prev
-  new_node.next = @tail
-  @tail.prev = new_node
+    new_node.prev = @tail.prev
+    new_node.next = @tail
+    @tail.prev = new_node
 
     new_node
   end
