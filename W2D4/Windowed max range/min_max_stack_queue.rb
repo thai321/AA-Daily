@@ -1,5 +1,4 @@
 require_relative 'min_max_stack'
-require_relative 'queue'
 
 # Use 2 Stack to implement a Queue
 class MinMaxStackQueue
@@ -34,7 +33,9 @@ class MinMaxStackQueue
 
   def dequeue
     # Only do this once for every n operations --> amortize O(1)
-    @stack_out.push(@stack_in.pop) until @stack_in.empty?
+    if @stack_out.empty?
+      @stack_out.push(@stack_in.pop) until @stack_in.empty?
+    end
     @stack_out.pop
   end
 
@@ -45,4 +46,5 @@ class MinMaxStackQueue
   def empty?
     @stack_in.empty? && @stack_out.empty?
   end
+
 end
