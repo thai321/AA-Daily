@@ -137,7 +137,7 @@ def sparse_continents
         FROM
           countries
         WHERE
-          population >= 25000000
-      )
+          population > 25000000
+      );
   SQL
 end
