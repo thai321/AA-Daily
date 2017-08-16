@@ -102,4 +102,7 @@ INSERT INTO
   question_likes(likes, user_id, question_id)
 VALUES
   (1, (SELECT id FROM users WHERE users.fname = 'Cory'), (SELECT id FROM questions WHERE body LIKE '%Rails%')),
-  (2, (SELECT id FROM users WHERE users.fname = 'Thai'), (SELECT id FROM questions WHERE body LIKE '%SQL%'));
+  (2, (SELECT id FROM users WHERE users.fname = 'Thai'), (SELECT id FROM questions WHERE body LIKE '%SQL%')),
+  
+  (4, (SELECT id FROM users WHERE users.fname = 'Thai'), (SELECT id FROM questions WHERE body LIKE '%Rails%'))
+  ;

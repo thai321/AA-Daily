@@ -30,7 +30,41 @@ class QuestionLikes
 
     num_likes.first['num']
   end
-
+  
+  def self.liked_questions_for_user_id(user_id)
+    questions = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT
+        questions.id
+      FROM
+        questions
+      JOIN
+        question_likes ON question_likes.user_id = questions.user_id
+      WHERE
+        questions.user_id = ?
+    SQL
+    
+    return nil if questions.empty?
+    questions.map { |h| Question.find_by_author_id(h['id']) }
+  end
+  
+  def self.most_liked_questions(n)
+    questions = QuestionsDatabase.instance.execute(<<-SQL, n)
+      SELECT
+        questions.id
+      FROM
+        questions
+      JOIN
+        question_likes ON question_likes.question_id = questions.id
+      GROUP BY
+        questions.id
+      ORDER BY
+        COUNT(*)
+      LIMIT ?
+    SQL
+    
+    questions.map { |h| Question.find_by_question_id(h['id']) }
+  end
+  
   def initialize(opts)
     @id = opts['id']
     @likes = opts['likes']

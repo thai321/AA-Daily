@@ -34,12 +34,28 @@ class User
     SQL
     user.empty? ? nil : User.new(user.first)
   end
+  
+  def average_karma
+    average = QuestionsDatabase.instance.execute(<<-SQL, @id)
+      SELECT
+        CAST(COUNT (DISTINCT questions.id) AS FLOAT) /  COUNT(question_likes.likes)
+      FROM
+        questions
+      JOIN
+        question_likes ON question_likes.question_id = questions.id
+      WHERE
+        questions.user_id = ?
+    SQL
+    
+    average.first.values.first
+  end
 
   def initialize(opts)
     @id = opts['id']
     @fname = opts['fname']
     @lname = opts['lname']
   end
+  
 
   def authored_questions
     Question.find_by_author_id(@id)
@@ -52,6 +68,14 @@ class User
   def followed_questions
     QuestionFollow.followed_questions_for_user_id(@id)
   end
-
+  
+  def liked_questions
+    QuestionLikes.liked_questions_for_user_id(@id)
+  end
+  
+  
+  def save
+    
+  end
 
 end
