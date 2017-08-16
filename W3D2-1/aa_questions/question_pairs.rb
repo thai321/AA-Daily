@@ -1,0 +1,6 @@
+# require './questions_database'
+require './user.rb'
+require './question.rb'
+require './question_likes.rb'
+require './question_follow.rb'
+require './reply.rb'
