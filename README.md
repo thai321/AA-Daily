@@ -82,3 +82,10 @@
 ## W2D5
 - CSS Box Model
 - My Hash Map (LRU Cache)
+
+## W3D1
+- SQL Zoo (SQL)
+
+## W3D2
+- Display Box Model
+- AA Questions (SQL, Ruby)
