@@ -1,0 +1,22 @@
+body, header, img, nav, aside, h2, ul, li, h1, figure,
+figcaption, p, a, form, label, input, select, option, textarea
+footer, ol {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+ul li, ol li {
+  list-style: none;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+}
