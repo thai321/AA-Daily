@@ -11,22 +11,45 @@ class AssocOptions
 
   def model_class
     # ...
+    class_name.constantize
   end
 
   def table_name
     # ...
+    model_class.table_name
   end
 end
 
 class BelongsToOptions < AssocOptions
   def initialize(name, options = {})
     # ...
+    data = {
+      foreign_key: (name.to_s + "_id").to_sym,
+      class_name: name.capitalize.to_s,
+      primary_key: :id
+    }
+
+    data.each do |attribute, data_val|
+      value = options[attribute] || data_val
+      self.send(attribute.to_s + "=", value)
+    end
   end
 end
 
 class HasManyOptions < AssocOptions
   def initialize(name, self_class_name, options = {})
     # ...
+    data = {
+      foreign_key: (self_class_name.to_s.downcase + "_id").to_sym,
+      class_name: name.to_s.singularize.capitalize,
+      primary_key: :id
+    }
+
+    data.each do |attribute, data_val|
+      value = options[attribute] || data_val
+      self.send(attribute.to_s + "=", value)
+    end
+
   end
 end
 
@@ -34,10 +57,23 @@ module Associatable
   # Phase IIIb
   def belongs_to(name, options = {})
     # ...
+    options = BelongsToOptions.new(name, options)
+
+    define_method(name) do
+      val = self.send(options.foreign_key)
+      options.model_class.where(options.primary_key => val).first
+    end
   end
 
   def has_many(name, options = {})
     # ...
+    options = HasManyOptions.new(name, self.name, options)
+    define_method(name) do
+      # byebug
+      val = self.send(options.primary_key)
+      options.model_class.where(options.foreign_key => val)
+    end
+
   end
 
   def assoc_options
@@ -47,4 +83,5 @@ end
 
 class SQLObject
   # Mixin Associatable here...
+  extend Associatable
 end
