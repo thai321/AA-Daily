@@ -37,6 +37,9 @@
 - W3D5
   - Meta-programming MetaCorgis :smile:
 
+- W4D1
+  - Library Controller
+
 -----------
 
 ## W1D1
