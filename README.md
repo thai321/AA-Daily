@@ -14,6 +14,7 @@
   - Create **this** repository
   - DIY ADTs
     - Stack, Queue, Map
+
 - W2D1
   - Simon game
 - W2D2
@@ -25,6 +26,18 @@
   - Big Octopus
 - W2D5
   - LRU Cache
+
+- W3D1
+  - Plays-Playwrights ORM
+- W3D2
+  - House Project
+- W3D4
+  - Active Record Warmup
+  - N + 1 Query Buster
+- W3D5
+  - Meta-programming MetaCorgis :smile:
+
+-----------
 
 ## W1D1
 - Enumerables
@@ -89,3 +102,17 @@
 ## W3D2
 - Display Box Model
 - AA Questions (SQL, Ruby)
+
+## W3D3
+- CSS Reset Exercise
+- Associations Exercise
+- URL Shortener: Part SQL
+
+## W3D4
+- CSS Float Exercise
+- Movie Buff (SQL)
+- Poll App (SQL, Association)
+
+## W3D5
+- CSS flex Exercise
+- Building ActiveRecordLite (Meta-programming) :smile:
