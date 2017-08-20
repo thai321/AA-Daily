@@ -1,0 +1,28 @@
+<h1>Add a Book</h1>
+
+<% if flash.now[:errors] %>
+  <ul>
+    <% flash.now[:errors].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action= <%= books_url %> method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label>Title
+  <input type="text" name="book[title]">
+  </label>
+  <br>
+
+  <label>Author
+  <input type="text" name="book[author]">
+  </label>
+  <br>
+
+  <input type="submit">
+</form>

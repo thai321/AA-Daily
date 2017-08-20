@@ -1,0 +1,11 @@
+<h1>Books</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li><%= book.title %> by <%= book.author %></li>
+    <%= button_to "delete", book_url(book), method: :delete %>
+    <br>
+  <% end %>
+</ul>
+
+<%= link_to "Add a book", "/books/new" %>
