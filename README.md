@@ -1,8 +1,11 @@
 # AA-Daily
 
+[maze]: Bonus/Maze/maze.rb
+[queen]: Bonus/NQueens/nqueens.rb
+
 ## Bonus
-- Maze
-- NQueens
+- [NQueens][queen]
+- [Maze][maze]
 
 ## HWs
 - W1D1 & W1D2: No HW :smile:
