@@ -21,20 +21,30 @@
   - [DIY ADTs][W1D5]
     - Stack, Queue, Map
 
+[Simon-game]: homeworks/W2D1/
+[Mancala-game]: homeworks/W2D2/Mancala/
+[Rspec]: homeworks/W2D3/RSpec/
+[Sorting-Demo]: homeworks/W2D4/sorting_demo.rb
+[big-octopus]: homeworks/W2D4/big_octopus.rb
+[LRU-Cache]: homeworks/W2D5/LRU_cache.rb
+
 - W2D1
-  - Simon game
+  - [Simon game][Simon-game]
 - W2D2
-  - Mancala game
+  - [Mancala game][Mancala-game]
 - W2D3
-  - RSpec
+  - [RSpec][Rspec]
 - W2D4
-  - Sorting Demo
-  - Big Octopus
+  - [Sorting Demo][Sorting-Demo]
+  - [Big Octopus][big-octopus]
 - W2D5
-  - LRU Cache
+  - [LRU Cache][LRU-Cache]
+
+[W3D2-plays]: homeworks/W3D2/Plays-Playwrights\ ORM/
+
 
 - W3D1
-  - Plays-Playwrights ORM
+  - [Plays-Playwrights ORM][W3D2-plays]
 - W3D2
   - House Project
 - W3D4
