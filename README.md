@@ -39,6 +39,11 @@
 
 - W4D1
   - Library Controller
+- W4D3
+  - CSS Fluid Grid & Flex Layouts Exercise
+  - CSS Warm Up
+- W4D4
+  - Rails Auth
 
 -----------
 
