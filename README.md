@@ -40,7 +40,7 @@
 - W2D5
   - [LRU Cache][LRU-Cache]
 
-[W3D2-plays]: homeworks/W3D2/Plays-Playwrights ORM/
+[W3D2-plays]: homeworks/W3D2/Plays-Playwrights-ORM/
 
 
 - W3D1
