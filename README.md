@@ -8,14 +8,17 @@
 - [Maze][maze]
 
 ## HWs
+[W1D3-Recursion]: homeworks/W1D3/hw_w1d3_recursion.rb
+[W1D5]: homeworks/W1D5/
+
 - W1D1 & W1D2: No HW :smile:
 - W1D3
-  - Recursion
+  - [Recursion][W1D3-Recursion]
 - W1D4
   - Git Workflow
 - W1D5
   - Create **this** repository
-  - DIY ADTs
+  - [DIY ADTs][W1D5]
     - Stack, Queue, Map
 
 - W2D1
