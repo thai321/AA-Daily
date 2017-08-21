@@ -59,9 +59,8 @@ module Associatable
     # ...
     temp = BelongsToOptions.new(name, options)
     self.assoc_options[name] = temp
-    # byebug
+
     define_method(name) do
-      # byebug
       options = self.class.assoc_options[name]
       val = self.send(options.foreign_key)
       options.model_class.where(options.primary_key => val).first
@@ -74,7 +73,6 @@ module Associatable
     self.assoc_options[name] = temp
 
     define_method(name) do
-      # byebug
       options = self.class.assoc_options[name]
       val = self.send(options.primary_key)
       options.model_class.where(options.foreign_key => val)
@@ -87,7 +85,6 @@ module Associatable
     # Wait to implement this in Phase IVa. Modify `belongs_to`, too.
     @assoc_options = {} if @assoc_options.nil?
     @assoc_options
-    # byebug
   end
 end
 
