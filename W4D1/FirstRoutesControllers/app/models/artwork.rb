@@ -33,5 +33,4 @@ class Artwork < ApplicationRecord
     source: :viewer
 
 
-
 end

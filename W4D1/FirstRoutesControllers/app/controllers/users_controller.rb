@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :udpate, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy]
 
   def index
     @users = User.all
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     if @user
       render json: @user
     else
