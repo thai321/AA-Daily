@@ -2,8 +2,18 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.all
-    render json: @users
+    # Search by user name
+    if params[:query]
+      @users = User.where("username LIKE '%#{params[:query]}%'")
+    else
+      @users = User.all
+    end
+
+    if params[:query] && @users.empty?
+      render plain: "Can't find the user with #{params[:query]}", status: 404
+    else
+      render json: @users, status: 200
+    end
   end
 
   def create

@@ -19,7 +19,6 @@ class ArtworkShare < ApplicationRecord
     class_name: :User,
     dependent: :destroy
 
-
   belongs_to :artwork,
     primary_key: :id,
     foreign_key: :artwork_id,
