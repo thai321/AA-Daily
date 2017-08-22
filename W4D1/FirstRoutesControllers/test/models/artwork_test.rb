@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: artworks
 #
 #  id         :integer          not null, primary key
-#  username   :string           not null
+#  title      :string           not null
+#  image_url  :string           not null
+#  artist_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class ArtworkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

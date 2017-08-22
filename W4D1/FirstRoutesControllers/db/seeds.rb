@@ -7,5 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-10.times { User.create(name: Faker::Name.unique.name, email: Faker::Internet.unique.email) }
-puts "Created 10 users"
+# 10.times { User.create(name: Faker::Name.unique.name, email: Faker::Internet.unique.email) }
+# puts "Created 10 users"
+
+
+User.destroy_all
+Artwork.destroy_all
+ArtworkShare.destroy_all
+puts "Delete the Old Database"
+
+u1 = User.create(username: Faker::Name.unique.name)
+u2 = User.create(username: Faker::Name.unique.name)
+puts "Created 2 new arists"
+
+art1 = Artwork.create(title: Faker::Cat.unique.name , image_url: Faker::Internet.unique.url, artist_id: u1.id )
+
+art2 = Artwork.create(title: Faker::Cat.unique.name , image_url: Faker::Internet.unique.url, artist_id: u2.id )
+
+puts "Created 2 artworks"
+
+ArtworkShare.create(artwork_id: art1.id, viewer_id: u2.id)
+ArtworkShare.create(artwork_id: art2.id, viewer_id: u2.id)

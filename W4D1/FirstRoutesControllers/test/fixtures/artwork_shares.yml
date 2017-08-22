@@ -1,9 +1,10 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: artwork_shares
 #
 #  id         :integer          not null, primary key
-#  username   :string           not null
+#  artwork_id :integer          not null
+#  viewer_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -11,9 +12,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
+  artwork_id: 1
+  viewer_id: 1
 
 two:
-  name: MyString
-  email: MyString
+  artwork_id: 1
+  viewer_id: 1
