@@ -230,3 +230,10 @@
 ## [W3D5][W3D5]
 - [CSS flex Exercise][W3D5-CSS]
 - [Building ActiveRecordLite (Meta-programming) :smile:][W3D5-Active-Record-Lite]
+
+
+[W4D1]: W4D1/
+[W4D1-API]: W4D1/FirstRoutesControllers/
+
+## [W4D1][W4D1]
+- [First Routes & Controllers/ Art Share API][W4D1-API]
