@@ -28,3 +28,10 @@ puts "Created 2 artworks"
 
 ArtworkShare.create(artwork_id: art1.id, viewer_id: u2.id)
 ArtworkShare.create(artwork_id: art2.id, viewer_id: u2.id)
+
+puts "Created 2 artwork-shares"
+
+
+c1 = Comment.create(body: Faker::Hacker.unique.say_something_smart, user_id: u1.id, artwork_id: art1.id)
+c2 = Comment.create(body: Faker::Hacker.unique.say_something_smart, user_id: u2.id, artwork_id: art2.id)
+puts "Created 2 comments"
