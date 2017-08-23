@@ -1,0 +1,40 @@
+<% action_url = (action == :new) ? cats_url : cat_url(cat) %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <label for="name">Name:</label>
+  <input type="name" name="cat[name]" value=" <%= cat.name %>" >
+  <br><br>
+
+  <label for="sex">Sex:</label><br>
+    Male<input type="radio" name="cat[sex]" value="M" checked=<%= cat.sex == "M" ? "true" : "false" %> >
+    Female<input type="radio" name="cat[sex]" value="F" checked=<%= cat.sex == "F" ? "true" : "false"%>>
+
+  <br><br>
+
+  <label for="birth_date">Birth Date:</label>
+  <input type="date" name="cat[birth_date]" value='<%= cat.birth_date %>'>
+  <br><br>
+
+  <label for="color">Color</label>
+  <select name="cat[color]" >
+    <%["White", "Green", "Red", "Orange", "Brown", "Yellow", "Blue"].each do |color| %>
+      <% if color == cat.color %>
+        <option value= <%= color %> selected="true" ><%= color %></option>
+      <% else %>
+        <option value= <%= color %> ><%= color %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <br><br>
+
+
+  <label for="description">Description:</label><br>
+  <textarea name="cat[description]" rows='10' cols='50'> <%= cat.description %> </textarea>
+
+  <br>
+  <input type="submit" value='<%= action_url == :edit ? "Update!" : "Create!" %>'>
+</form>

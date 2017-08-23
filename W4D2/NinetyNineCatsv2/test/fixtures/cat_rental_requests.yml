@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: cat_rental_requests
+#
+#  id         :integer          not null, primary key
+#  cat_id     :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
+#  status     :string           default("PENDING")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat_id: 1
+  start_date: 2017-08-22
+  end_date: 2017-08-22
+  status: MyString
+
+two:
+  cat_id: 1
+  start_date: 2017-08-22
+  end_date: 2017-08-22
+  status: MyString
