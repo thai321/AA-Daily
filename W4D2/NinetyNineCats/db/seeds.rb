@@ -55,21 +55,24 @@ puts "Create 5 cats"
 
 
 rental1 = CatRentalRequest.create!(
-        cat_id: 2,
-        start_date: Faker::Date.backward(20).strftime("%Y/%m/%d"),
-        end_date: Faker::Date.backward(10).strftime("%Y/%m/%d"),
-        status: 'APPROVED'
-        )
+          cat_id: 2,
+          start_date: Date.new(2017,8,8),
+          end_date: Date.new(2017,8,27)
+          )
 
 rental2 = CatRentalRequest.create!(
-        cat_id: 2,
-        start_date: Faker::Date.backward(20).strftime("%Y/%m/%d"),
-        end_date: Faker::Date.backward(10).strftime("%Y/%m/%d")
-        )
+          cat_id: 2,
+          start_date: Date.new(2017,9,8),
+          end_date: Date.new(2017,9,27)
+          )
 
 rental3 = CatRentalRequest.create!(
-        cat_id: 2,
-        start_date: Faker::Date.backward(200).strftime("%Y/%m/%d"),
-        end_date: Faker::Date.backward(100).strftime("%Y/%m/%d")
-        )
-puts "create 3 rental requests"
+          cat_id: 2,
+          start_date: Date.new(2017,10,8),
+          end_date: Date.new(2017,10,27),
+          status: 'APPROVED'
+          )
+
+puts "create 3 rental requests, last rental is Approved"
+
+# rental = CatRentalRequest.new(cat_id: 2, start_date: Date.new(2017,10,8), end_date: Date.new(2017,10,27))

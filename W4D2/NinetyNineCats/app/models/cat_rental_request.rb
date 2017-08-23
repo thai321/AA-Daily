@@ -18,9 +18,12 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
+
+  private
+
   def overlapping_requests
     CatRentalRequest
-      .select('*')
+      .where(cat_id: cat_id)
       .where('(? BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
               (? BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
               (cat_rental_requests.start_date >= ? AND cat_rental_requests.end_date <= ?)',
@@ -29,14 +32,13 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def overlapping_approved_requests
-    self.overlapping_requests.select { |request| request.status == 'APPROVED' }
+    overlapping_requests.where('status = \'APPROVED\'')
   end
 
   def does_not_overlap_approved_request
-    byebug
-    self.overlapping_approved_requests.none? { |request| CatRentalRequest.exists?(request) }
+    if !overlapping_approved_requests.empty?
+      errors[:overlap] << "The request is overlap with an existing approved requested"
+    end
   end
+
 end
-
-
-# c2 = CatRentalRequest.new(cat_id: 2, start_date: Date.new(2017,8,8), end_date: Date.new(2017,8,15))
