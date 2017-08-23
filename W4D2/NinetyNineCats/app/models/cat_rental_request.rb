@@ -18,6 +18,16 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
+  def approve!
+    self.status = 'APPROVED' if self.status = 'DENIED'
+    self.save
+  end
+
+  def deny!
+    self.status = 'DENIED'
+    self.save
+  end
+
   private
 
   def overlapping_requests
@@ -35,7 +45,8 @@ class CatRentalRequest < ApplicationRecord
   end
 
   def does_not_overlap_approved_request
-    if !overlapping_approved_requests.empty?
+    # Deny all conflicting rental requests
+    if self.status != 'DENIED' && !overlapping_approved_requests.empty?
       errors[:overlap] << "The request is overlap with an existing approved requested"
     end
   end

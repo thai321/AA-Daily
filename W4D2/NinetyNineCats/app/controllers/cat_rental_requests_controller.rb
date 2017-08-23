@@ -16,8 +16,18 @@ class CatRentalRequestsController < ApplicationController
     end
   end
 
+
+
+  # def approve
+  #
+  # end
+
   private
   def cat_rental_request_params
     params.require(:cat_rental_request).permit(:cat_id, :start_date, :end_date, :status)
   end
+
+  # def current_cat
+    # Cat.find
+  # end
 end
