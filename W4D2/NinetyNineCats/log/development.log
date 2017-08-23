@@ -4193,3 +4193,1010 @@ Completed 200 OK in 27ms (Views: 26.7ms | ActiveRecord: 0.4ms)
   [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-10-08"], ["end_date", "2017-10-27"], ["status", "APPROVED"], ["created_at", "2017-08-23 04:47:09.727904"], ["updated_at", "2017-08-23 04:47:09.727904"]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:32:17 -0700
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  Rendered cat_rental_requests/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 271ms (Views: 249.6ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:45:06 -0700
+Processing by CatRentalRequestsController#new as HTML
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 7.1ms)
+
+
+
+NameError - uninitialized constant CatRentalRequestsController::Call:
+  activesupport (5.1.3) lib/active_support/dependencies.rb:549:in `load_missing_constant'
+  activesupport (5.1.3) lib/active_support/dependencies.rb:202:in `const_missing'
+  app/controllers/cat_rental_requests_controller.rb:5:in `new'
+  actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.3) lib/rails/engine.rb:522:in `call'
+  puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+  puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+  puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+  puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/23e9ce66aad6ce55/variables" for 127.0.0.1 at 2017-08-23 08:45:06 -0700
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:45:18 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (3.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 86ms (Views: 57.5ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:45:29 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:46:20 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:46:29 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:46:37 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:46:46 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:52:36 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:54:41 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:54:48 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 172ms (Views: 171.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:55:16 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 08:57:39 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 85ms (Views: 47.1ms | ActiveRecord: 15.0ms)
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2017-08-23 08:57:59 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"1", "start_date"=>"2018-06-06", "end_date"=>"2018-07-20"}}
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (4.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2018-06-06' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2018-07-20' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2018-06-06' AND cat_rental_requests.end_date <= '2018-07-20')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (4.9ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["start_date", "2018-06-06"], ["end_date", "2018-07-20"], ["created_at", "2017-08-23 15:57:59.849745"], ["updated_at", "2017-08-23 15:57:59.849745"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/cats/1
+Completed 302 Found in 45ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 08:57:59 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5054.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "NinetyNineCats_development"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (133.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "NinetyNineCats_development"[0m
+  [1m[35m (127.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "NinetyNineCats_test"[0m
+  [1m[35m (342.7ms)[0m  [1m[35mCREATE DATABASE "NinetyNineCats_development" ENCODING = 'unicode'[0m
+  [1m[35m (251.4ms)[0m  [1m[35mCREATE DATABASE "NinetyNineCats_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "start_date" date NOT NULL, "end_date" date NOT NULL, "status" character varying DEFAULT 'PENDING', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170822221521)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170822160947);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-23 16:01:49.142730"], ["updated_at", "2017-08-23 16:01:49.142730"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "start_date" date NOT NULL, "end_date" date NOT NULL, "status" character varying DEFAULT 'PENDING', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170822221521)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170822160947);
+
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-23 16:01:49.212179"], ["updated_at", "2017-08-23 16:01:49.212179"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2016-01-18"], ["color", "Blue"], ["name", "Sooty"], ["sex", "M"], ["description", "You can't reboot the transmitter without generating the haptic SAS feed!"], ["created_at", "2017-08-23 16:01:49.858679"], ["updated_at", "2017-08-23 16:01:49.858679"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2012-12-12"], ["color", "White"], ["name", "Bella"], ["sex", "F"], ["description", "You can't navigate the microchip without quantifying the solid state JBOD program!"], ["created_at", "2017-08-23 16:01:49.862715"], ["updated_at", "2017-08-23 16:01:49.862715"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2017-08-03"], ["color", "Yellow"], ["name", "Misty"], ["sex", "M"], ["description", "Generating the card won't do anything, we need to connect the optical http monitor!"], ["created_at", "2017-08-23 16:01:49.865807"], ["updated_at", "2017-08-23 16:01:49.865807"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2012-07-27"], ["color", "Blue"], ["name", "Daisy"], ["sex", "M"], ["description", "We need to program the haptic SDD firewall!"], ["created_at", "2017-08-23 16:01:49.868872"], ["updated_at", "2017-08-23 16:01:49.868872"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2015-12-03"], ["color", "Orange"], ["name", "Charlie"], ["sex", "M"], ["description", "Parsing the bandwidth won't do anything, we need to synthesize the digital sms microchip!"], ["created_at", "2017-08-23 16:01:49.871832"], ["updated_at", "2017-08-23 16:01:49.871832"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-08-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-08-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-08-08' AND cat_rental_requests.end_date <= '2017-08-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-08-08"], ["end_date", "2017-08-27"], ["created_at", "2017-08-23 16:01:49.901442"], ["updated_at", "2017-08-23 16:01:49.901442"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-09-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-09-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-09-08' AND cat_rental_requests.end_date <= '2017-09-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-09-08"], ["end_date", "2017-09-27"], ["created_at", "2017-08-23 16:01:49.906470"], ["updated_at", "2017-08-23 16:01:49.906470"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-10-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-10-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-10-08' AND cat_rental_requests.end_date <= '2017-10-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-10-08"], ["end_date", "2017-10-27"], ["status", "APPROVED"], ["created_at", "2017-08-23 16:01:49.910631"], ["updated_at", "2017-08-23 16:01:49.910631"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (119.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "NinetyNineCats_development"[0m
+  [1m[35m (123.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "NinetyNineCats_test"[0m
+  [1m[35m (258.2ms)[0m  [1m[35mCREATE DATABASE "NinetyNineCats_development" ENCODING = 'unicode'[0m
+  [1m[35m (250.6ms)[0m  [1m[35mCREATE DATABASE "NinetyNineCats_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "start_date" date NOT NULL, "end_date" date NOT NULL, "status" character varying DEFAULT 'PENDING', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170822221521)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170822160947);
+
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-23 16:02:03.067806"], ["updated_at", "2017-08-23 16:02:03.067806"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "start_date" date NOT NULL, "end_date" date NOT NULL, "status" character varying DEFAULT 'PENDING', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170822221521)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170822160947);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-23 16:02:03.132881"], ["updated_at", "2017-08-23 16:02:03.132881"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2016-07-05"], ["color", "Red"], ["name", "Molly"], ["sex", "F"], ["description", "We need to compress the digital EXE circuit!"], ["created_at", "2017-08-23 16:02:03.765680"], ["updated_at", "2017-08-23 16:02:03.765680"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2016-08-13"], ["color", "Orange"], ["name", "Chloe"], ["sex", "F"], ["description", "Use the optical SDD array, then you can index the neural firewall!"], ["created_at", "2017-08-23 16:02:03.771684"], ["updated_at", "2017-08-23 16:02:03.771684"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2013-08-25"], ["color", "White"], ["name", "Jasper"], ["sex", "F"], ["description", "We need to parse the multi-byte IB microchip!"], ["created_at", "2017-08-23 16:02:03.775419"], ["updated_at", "2017-08-23 16:02:03.775419"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2014-10-09"], ["color", "Red"], ["name", "Lucy"], ["sex", "M"], ["description", "If we navigate the driver, we can get to the EXE card through the neural FTP capacitor!"], ["created_at", "2017-08-23 16:02:03.779434"], ["updated_at", "2017-08-23 16:02:03.779434"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2013-09-05"], ["color", "Yellow"], ["name", "Max"], ["sex", "M"], ["description", "If we program the capacitor, we can get to the XSS capacitor through the optical AGP interface!"], ["created_at", "2017-08-23 16:02:03.783455"], ["updated_at", "2017-08-23 16:02:03.783455"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-08-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-08-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-08-08' AND cat_rental_requests.end_date <= '2017-08-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-08-08"], ["end_date", "2017-08-27"], ["created_at", "2017-08-23 16:02:03.815952"], ["updated_at", "2017-08-23 16:02:03.815952"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-09-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-09-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-09-08' AND cat_rental_requests.end_date <= '2017-09-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-09-08"], ["end_date", "2017-09-27"], ["created_at", "2017-08-23 16:02:03.821090"], ["updated_at", "2017-08-23 16:02:03.821090"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2017-10-08' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2017-10-27' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2017-10-08' AND cat_rental_requests.end_date <= '2017-10-27')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 2], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["cat_id", 2], ["start_date", "2017-10-08"], ["end_date", "2017-10-27"], ["status", "APPROVED"], ["created_at", "2017-08-23 16:02:03.825338"], ["updated_at", "2017-08-23 16:02:03.825338"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:02:53 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 7.2ms)
+
+
+
+NoMethodError - undefined method `rental_requests' for #<Class:0x007faf6ba00588>:
+  activerecord (5.1.3) lib/active_record/dynamic_matchers.rb:22:in `method_missing'
+  app/controllers/cats_controller.rb:10:in `show'
+  actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.3) lib/rails/engine.rb:522:in `call'
+  puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+  puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+  puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+  puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/2147d4733ceed1b8/variables" for 127.0.0.1 at 2017-08-23 09:02:54 -0700
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:03:10 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 11.6ms)
+
+
+
+NameError - uninitialized constant Cat::RentalRequest:
+  activerecord (5.1.3) lib/active_record/inheritance.rb:166:in `compute_type'
+  activerecord (5.1.3) lib/active_record/reflection.rb:401:in `compute_class'
+  activerecord (5.1.3) lib/active_record/reflection.rb:397:in `klass'
+  activerecord (5.1.3) lib/active_record/associations/association.rb:127:in `klass'
+  activerecord (5.1.3) lib/active_record/associations/collection_association.rb:33:in `reader'
+  activerecord (5.1.3) lib/active_record/associations/builder/association.rb:111:in `rental_requests'
+  app/controllers/cats_controller.rb:10:in `show'
+  actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.3) lib/rails/engine.rb:522:in `call'
+  puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+  puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+  puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+  puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/2bb4c87955eba502/variables" for 127.0.0.1 at 2017-08-23 09:03:10 -0700
+Started POST "/__better_errors/2bb4c87955eba502/eval" for 127.0.0.1 at 2017-08-23 09:03:23 -0700
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 09:03:40 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 268ms (Views: 246.8ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2017-08-23 09:03:53 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"1", "start_date"=>"2018-03-13", "end_date"=>"2018-04-18"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2018-03-13' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2018-04-18' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2018-03-13' AND cat_rental_requests.end_date <= '2018-04-18')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["start_date", "2018-03-13"], ["end_date", "2018-04-18"], ["created_at", "2017-08-23 16:03:53.640942"], ["updated_at", "2017-08-23 16:03:53.640942"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/cats/1
+Completed 302 Found in 22ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:03:53 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+
+NameError - uninitialized constant Cat::RentalRequest:
+  activerecord (5.1.3) lib/active_record/inheritance.rb:166:in `compute_type'
+  activerecord (5.1.3) lib/active_record/reflection.rb:401:in `compute_class'
+  activerecord (5.1.3) lib/active_record/reflection.rb:397:in `klass'
+  activerecord (5.1.3) lib/active_record/associations/association.rb:127:in `klass'
+  activerecord (5.1.3) lib/active_record/associations/collection_association.rb:33:in `reader'
+  activerecord (5.1.3) lib/active_record/associations/builder/association.rb:111:in `rental_requests'
+  app/controllers/cats_controller.rb:10:in `show'
+  actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.3) lib/rails/engine.rb:522:in `call'
+  puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+  puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+  puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+  puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/a66fae78853fb5c2/variables" for 127.0.0.1 at 2017-08-23 09:03:53 -0700
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:04:53 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 82ms (Views: 29.5ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:05:24 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  Rendered cats/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:11:19 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  Rendered cats/show.html.erb within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 9.8ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/cats/show.html.erb:32:in `_app_views_cats_show_html_erb__1770686018171502660_70195757173760'
+  actionview (5.1.3) lib/action_view/template.rb:157:in `block in render'
+  activesupport (5.1.3) lib/active_support/notifications.rb:168:in `instrument'
+  actionview (5.1.3) lib/action_view/template.rb:352:in `instrument_render_template'
+  actionview (5.1.3) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.3) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.3) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.3) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.3) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.3) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.3) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.3) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.3) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.3) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.3) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.3) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.3) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/local/Cellar/ruby/2.4.1_1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/cats_controller.rb:11:in `show'
+  actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+  actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.3) lib/rails/engine.rb:522:in `call'
+  puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+  puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+  puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+  puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+  puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/76c6d6afbf61641b/variables" for 127.0.0.1 at 2017-08-23 09:11:20 -0700
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+  [1m[36mCACHE CatRentalRequest Load (0.0ms)[0m  [1m[34mSELECT  "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 11]]
+Started GET "/cats/1" for 127.0.0.1 at 2017-08-23 09:11:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 1]]
+  Rendered cats/show.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 89ms (Views: 49.1ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/cat_rental_requests/new" for 127.0.0.1 at 2017-08-23 09:14:22 -0700
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cat_rental_requests/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 63ms (Views: 40.1ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2017-08-23 09:14:46 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"4", "start_date"=>"2016-09-19", "end_date"=>"2016-11-17"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2016-09-19' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2016-11-17' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2016-09-19' AND cat_rental_requests.end_date <= '2016-11-17')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 4], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 4], ["start_date", "2016-09-19"], ["end_date", "2016-11-17"], ["created_at", "2017-08-23 16:14:46.860583"], ["updated_at", "2017-08-23 16:14:46.860583"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/cats/4
+Completed 302 Found in 18ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:14:46 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2017-08-23 09:15:28 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"4", "start_date"=>"2018-04-19", "end_date"=>"2018-11-23"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2018-04-19' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2018-11-23' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2018-04-19' AND cat_rental_requests.end_date <= '2018-11-23')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 4], ["LIMIT", 1]]
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 4], ["start_date", "2018-04-19"], ["end_date", "2018-11-23"], ["created_at", "2017-08-23 16:15:28.745470"], ["updated_at", "2017-08-23 16:15:28.745470"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/cats/4
+Completed 302 Found in 10ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:15:28 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:16:33 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 88ms (Views: 49.8ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:16:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:16:34 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:17:26 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:17:35 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:21:13 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:21:14 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 30ms (Views: 27.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:21:15 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:21:44 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:21:56 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.5ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/4/edit" for 127.0.0.1 at 2017-08-23 09:22:24 -0700
+Processing by CatsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/edit.html.erb within layouts/application
+  Rendered cats/_form.html.erb (1.6ms)
+  Rendered cats/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 45ms (Views: 26.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:23:28 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (1.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY start_date[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 71ms (Views: 35.9ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:23:28 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY start_date[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:23:29 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY start_date[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/cat_rental_requests" for 127.0.0.1 at 2017-08-23 09:23:47 -0700
+Processing by CatRentalRequestsController#create as HTML
+  Parameters: {"cat_rental_request"=>{"cat_id"=>"4", "start_date"=>"2015-04-19", "end_date"=>"2015-11-23"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCatRentalRequest Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 AND (('2015-04-19' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              ('2015-11-23' BETWEEN cat_rental_requests.start_date AND cat_rental_requests.end_date) OR
+              (cat_rental_requests.start_date >= '2015-04-19' AND cat_rental_requests.end_date <= '2015-11-23')) AND ("cat_rental_requests"."id" IS NOT NULL) AND (status = 'APPROVED') LIMIT $2[0m  [["cat_id", 4], ["LIMIT", 1]]
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cat_rental_requests" ("cat_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 4], ["start_date", "2015-04-19"], ["end_date", "2015-11-23"], ["created_at", "2017-08-23 16:23:47.846916"], ["updated_at", "2017-08-23 16:23:47.846916"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/cats/4
+Completed 302 Found in 20ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/cats/4" for 127.0.0.1 at 2017-08-23 09:23:47 -0700
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 ORDER BY start_date[0m  [["cat_id", 4]]
+  Rendered cats/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.9ms)
+
+

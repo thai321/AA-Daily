@@ -18,7 +18,6 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
-
   private
 
   def overlapping_requests

@@ -7,6 +7,7 @@ class CatsController < ApplicationController
   end
 
   def show
+    @current_requests = @cat.cat_rental_requests.order('start_date')
     render :show
   end
 

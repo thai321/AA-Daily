@@ -24,5 +24,30 @@
 <label for="cat-description">Description:</label>
 <p><%= @cat.description %></p>
 
+<br><br>
+
+<h3>Current Request:</h3>
+
+<% @current_requests.each do |request| %>
+  <table>
+    <tr>
+      <td>Status: </td>
+      <td> <%= request.status %> </td>
+    </tr>
+
+    <tr>
+      <td>Start Date: </td>
+      <td> <%= request.start_date %></td>
+    </tr>
+
+    <tr>
+      <td>End Date</td>
+      <td> <%= request.end_date %></td>
+    </tr>
+
+  </table>
+  <br><br>
+<% end %>
+
 <h3><%= link_to 'edit', edit_cat_url(@cat) %></h3>
 <h3><%= link_to 'Back to index', cats_url %></h3>

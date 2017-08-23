@@ -18,7 +18,7 @@ class Cat < ApplicationRecord
   validates :color, inclusion: COLORS
   validates :birth_date, :color, :name, :sex, :description, presence: true
 
-  # has_many :rental_requests, dependent: :destroy
+  has_many :cat_rental_requests, dependent: :destroy
 
   def age
     today = Date.today
