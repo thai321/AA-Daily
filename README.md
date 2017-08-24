@@ -237,3 +237,14 @@
 
 ## [W4D1][W4D1]
 - [First Routes & Controllers/ Art Share API][W4D1-API]
+
+[W4D2]: W4D2/
+[W4D2-Cats]: W4D2/NinetyNineCats/
+
+## [W4D2][W4D2]
+- [99Cats][W4D2-Cats]
+
+
+[W4D3]: W4D3/
+[W4D3-AATimes]: W4D3/AppAcademyTimes/
+- [App Academy Times][W4D3-AATimes]
