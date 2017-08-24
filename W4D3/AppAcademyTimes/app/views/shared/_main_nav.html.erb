@@ -1,0 +1,41 @@
+<header class="main-nav">
+	<nav class="left-nav">
+		<ul>
+			<li id="sections-sidebar-btn">
+				<i class="fa fa-bars"></i>
+				<span>sections</span>
+			</li>
+			<li id="search-modal-btn">
+				<i class="fa fa-search"></i>
+				<span>search</span>
+			</li>
+		</ul>
+	</nav>
+
+	<nav class="right-nav">
+		<ul>
+			<li><button type="button" name="button">Subscribe Now</button></li>
+			<li><button type="button" name="button">Log In</button></li>
+			<li id="gear-dropdown-btn">
+				<i class="fa fa-cog" ></i>
+					<%= render partial: 'shared/gear_dropdown' %>
+			</li>
+		</ul>
+	</nav>
+</header>
+<!--
+Now it is time to style in the components/_main_nav.scss stylesheet. We have provided the selectors for you. Here are some guidelines:
+
+Add display: flex to the .main-nav and use justify-content for horizontal spacing.
+
+Add padding to the .main-nav for vertical spacing.
+
+Flex the unordered lists to keep their children horizontally aligned and use the align-items property to vertically align them.
+
+Apply font-family, font-size, and text-transform properties to the list elements themselves.
+
+Use the $lightest-gray hover for the list elements without buttons.
+
+Style the necessary margin spacing between the texts and the icons.
+
+Use font-size to make the gear icon bigger. -->
