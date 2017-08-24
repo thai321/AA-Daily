@@ -18,14 +18,24 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
-  def approve!
-    self.status = 'APPROVED' if self.status = 'DENIED'
-    self.save
-  end
-
   def deny!
     self.status = 'DENIED'
     self.save
+  end
+
+  def pending?
+    self.status == 'PENDING'
+  end
+
+  def approve!
+    raise "Can't approve from Denied status" if self.status == 'DENIED'
+    transaction do
+      self.status = 'APPROVED'
+      self.save
+
+      # Approve this request and reject other conflict requests
+      overlapping_pending_requests.update_all(status: 'DENIED')
+    end
   end
 
   private
@@ -42,6 +52,10 @@ class CatRentalRequest < ApplicationRecord
 
   def overlapping_approved_requests
     overlapping_requests.where('status = \'APPROVED\'')
+  end
+
+  def overlapping_pending_requests
+    overlapping_requests.where('status = \'PENDING\'')
   end
 
   def does_not_overlap_approved_request

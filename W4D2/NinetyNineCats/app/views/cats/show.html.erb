@@ -30,10 +30,17 @@
 
 <% @current_requests.each do |request| %>
   <table>
-    <tr>
-      <td>Status: </td>
-      <td> <%= request.status %> </td>
-    </tr>
+    <% if request.pending? %>
+
+        <%= button_to 'APPROVED' , approve_cat_rental_request_url(request) %>
+        <%= button_to 'DENIED' , deny_cat_rental_request_url(request) %>
+
+    <% else %>
+      <tr>
+        <td>Status: </td>
+        <td> <%= request.status %> </td>
+      </tr>
+    <% end %>
 
     <tr>
       <td>Start Date: </td>
