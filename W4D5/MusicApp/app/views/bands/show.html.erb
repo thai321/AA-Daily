@@ -1,2 +1,6 @@
-<h1>Bands#show</h1>
-<p>Find me in app/views/bands/show.html.erb</p>
+
+<%= link_to "All Bands", bands_url, class: "btn btn-small btn-primary" %>
+
+
+<h1>Band's name: <%= @band.name %></h1>
+<%= button_to "Delete", @band, method: :delete, class: "btn btn-small btn-danger" %>

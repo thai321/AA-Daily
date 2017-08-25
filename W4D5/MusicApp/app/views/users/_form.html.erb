@@ -1,7 +1,5 @@
 <% action_url = (action == :sign_up) ? session_url : users_url %>
 
-<%= render "shared/errors" %>
-
 <form  class="form-signin" action=" <%= action_url %> " method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
