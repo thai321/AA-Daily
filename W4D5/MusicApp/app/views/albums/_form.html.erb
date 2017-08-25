@@ -1,0 +1,48 @@
+<% action_url = (action == :edit) ? album_url(album) : albums_url %>
+
+<form class="" action=" <%= action_url %> " method="post">
+<input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <% end %>
+
+
+  <label for="name">Album's Name:</label>
+  <input type="text" name="album[title]" value="<%= album.title %>">
+
+  <br><br>
+
+  <label for="album-band"></label>
+  <select name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option <%= "selected" if album.band_id == band.id %>
+        value= "<%= band.id %>" >
+        <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <br><br>
+
+  <label for="album-year">Year:</label>
+  <input type="number" name="album[year]" value="<%= album.year %>">
+
+  <br><br>
+
+  <label for="album-live">Live</label>
+  <input type="radio" name="album[live]" value="true"
+          <%= "checked" if album.live %> >
+
+  <br><br>
+
+  <label for="album-studio">Studio</label>
+  <input type="radio" name="album[live]" value="false"
+          <%= "checked" if !album.live %> >
+
+  <br><br>
+
+  <input type="submit" value="<%= (action == :new) ? "Create Album" : "Update Album"%>" class="btn btn-primary">
+
+</form>

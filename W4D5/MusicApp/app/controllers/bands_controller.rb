@@ -10,10 +10,8 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
 
     if @band.save
-      byebug
       redirect_to bands_url
     else
-      # byebug
       flash.now[:errors] = @band.errors.full_messages
       render :new, status: 422
     end
