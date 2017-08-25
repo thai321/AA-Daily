@@ -2,14 +2,16 @@
 
 <%= render "shared/errors" %>
 
-<form action=" <%= action_url %> " method="post">
+<form  class="form-signin" action=" <%= action_url %> " method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label for="email">Email:</label>
-  <input type="email" name="user[email]" value=" <%= user ? user.email : '' %> ">
-
+  <label  for="email">Email:</label>
+  <input required autofocus type="email" name="user[email]" value=" <%= user ? user.email : '' %> ">
   <label for="password">Password:</label>
   <input type="password" name="user[password]">
 
-  <input type="submit" value=" <%= (action == :new) ? 'Create a new Account' : 'Sign In' %> ">
+  <input type="submit"
+         value=" <%= (action == :new) ? 'Create a new Account' : 'Sign In' %> ",
+         class="btn btn-small btn-primary"
+         >
 </form>
