@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <h1>Hello <%= current_user ? current_user.user_name : "Guest" %> </h1>
+
+    <% if logged_in? %>
+      <%= button_to "LOG OUT", session_url , method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_session_url %>
+      <%= link_to "Sign Up", new_user_url %>
+    <% end %>
+
+  <%= yield %>
   </body>
 </html>
