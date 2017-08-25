@@ -1,0 +1,9 @@
+<h1>New Cat</h1>
+
+<%= render 'shared/errors' %>
+<%= render 'form', cat: @cat %>
+
+
+<% content_for :footer do %>
+<p>This is the cat New page.</p>
+<% end %>

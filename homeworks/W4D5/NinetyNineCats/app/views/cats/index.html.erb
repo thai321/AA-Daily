@@ -1,0 +1,14 @@
+<h1>Cats upon cats!</h1>
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><%= link_to cat.name, cat_url(cat) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Create cat', new_cat_url %>
+
+
+<% content_for :footer do %>
+  <p>This is the cats Index page.</p>
+<% end %>
