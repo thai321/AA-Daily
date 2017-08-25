@@ -18,4 +18,6 @@ class Album < ApplicationRecord
   validates :title, uniqueness: { scope: :band_id }
 
   belongs_to :band
+
+  has_many :tracks, dependent: :destroy
 end
