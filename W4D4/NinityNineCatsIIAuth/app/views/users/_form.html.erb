@@ -1,5 +1,7 @@
 <h1>Create User Page </h1>
 
+<%= render 'shared/errors' %>
+
 <form action=" <%= users_url %> " method="post">
   <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
 

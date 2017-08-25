@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user!
+
   def new
     @user = User.new
     render :new
@@ -6,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # byebug
+
     if @user.save
       login!(@user)
       redirect_to @user

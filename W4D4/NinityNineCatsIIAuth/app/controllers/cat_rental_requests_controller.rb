@@ -1,5 +1,6 @@
 class CatRentalRequestsController < ApplicationController
-  before_action :check_owner, only: [:aprove, :deny]
+  before_action :require_user!, only: [:approve, :deny]
+  before_action :check_owner!, only: [:approve, :deny]
 
   def approve
     current_cat_rental_request.approve!
@@ -24,7 +25,7 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def new
-    @rental_request = CatRentalRequest.new
+    @rental_request = CatRentalRequest.new(cat_id: params[:cat_id])
   end
 
   private
@@ -39,15 +40,16 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def cat_rental_request_params
-    params.require(:cat_rental_request).permit(:cat_id, :end_date, :start_date, :status, :user_id)
+    params.require(:cat_rental_request).permit(:cat_id, :end_date, :start_date, :status)
   end
 
   private
-  def check_owner
-    if !current_user # no one login
-      redirect_to cats_url
-    elsif !(current_user.id == @rental_request.user.id) # check current own this reequest
-      redirect_to user_url(current_user)
+  def check_owner!
+    return if current_cat.user_id == current_user.id
+
+    current_cat_rental_request
+    if !(current_user.id == @rental_request.user.id)
+      redirect_to cat_url(current_cat)
     end
   end
 end

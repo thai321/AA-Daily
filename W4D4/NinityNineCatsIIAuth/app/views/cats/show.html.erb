@@ -13,7 +13,7 @@
   <% end %>
 </table>
 
-<% if @cat.owner.id == current_user.id %>
+<% if current_user && @cat.owner.id == current_user.id %>
 
   <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat) %>
 
@@ -29,7 +29,11 @@
         <%= render 'req_tr', req: req %>
       <% end %>
     </table>
-
 <% end %>
+
+<% if logged_in? %>
+  <%= link_to 'Make new request', new_cat_rental_request_url(cat_id: @cat.id) %>
+<% end %>
+
 
 <%= link_to "All Cats", cats_url %>

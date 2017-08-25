@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :edit, :update]
-  before_action :check_owner, only: [:update, :edit]
+  before_action :set_cat, only: [:show]
+  before_action :require_user!, only: [:new, :create, :update, :edit]
 
   def index
     @cats = Cat.all
@@ -29,6 +29,7 @@ class CatsController < ApplicationController
   end
 
   def edit
+    @cat = current_user.cats.find(params[:id])
     render :edit
   end
 
@@ -45,7 +46,7 @@ class CatsController < ApplicationController
   private
 
   def cat_params
-    params.require(:cat).permit(:age, :birth_date, :color, :description, :name, :sex, :user_id)
+    params.require(:cat).permit(:age, :birth_date, :color, :description, :name, :sex)
   end
 
   def check_owner

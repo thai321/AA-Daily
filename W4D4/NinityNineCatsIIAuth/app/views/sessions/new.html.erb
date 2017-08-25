@@ -1,8 +1,10 @@
 <h1>Log In Page</h1>
 
+<%= render "shared/errors" %>
+
 <form action=" <%= session_url %> " method="post">
   <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
-  
+
   <label for="Username">Username: </label>
   <input type="text" name="user[user_name]">
 
