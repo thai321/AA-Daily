@@ -62,10 +62,12 @@
 
 
 
-[W4D1-Library-controller]: homeworks/W4D1/Library-Controller/
+[W4D1-Library-controller]: homeworks/W4D1/Library-Controller
 [W4D3-CSS-Fluid]: homeworks/W4D3/CSS-Fluid-Grid-And-Flex-Layouts-Exercise/
 [W4D3-CSS-Warm-Up]: homeworks/W4D3/CSS-Warm-Up/
 [W4D4-RailsAuth]: homeworks/W4D4/RailsAuth/
+[W4D5-Cat]: homeworks/W4D5/NinetyNineCats/
+
 
 - W4D1
   - [Library Controller][W4D1-Library-controller]
@@ -74,6 +76,9 @@
   - [CSS Warm Up][W4D3-CSS-Warm-Up]
 - W4D4
   - [Rails Auth][W4D4-RailsAuth]
+
+- W4D5
+  - [Helpers, Layouts, and Partials Homework][W4D5-Cat]
 
 -----------
 [W1D1]: W1D1/
@@ -250,3 +255,10 @@
 
 ## [W4D3][W4D3]
 - [App Academy Times][W4D3-AATimes]
+
+
+[W4D4]: W4D4/
+[W4D4-99Cats]: W4D4/NinetyNineCatsIIAuth/
+
+## [W4D4][W4D4]
+- [99 Cats II: Auth][W4D4-99Cats]
