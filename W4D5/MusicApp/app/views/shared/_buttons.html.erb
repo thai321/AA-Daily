@@ -1,0 +1,6 @@
+<% if logged_in? %>
+  <%= button_to "Log Out", session_url, method: :delete %>
+<% else %>
+  <%= link_to "Sign In Page", new_session_url %>
+  <%= link_to "Sign Up Page", new_user_url %>
+<% end %>
