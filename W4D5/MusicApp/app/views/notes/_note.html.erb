@@ -1,3 +1,11 @@
-<p><%= @note.content %></p>
+<p><%= note.content %></p>
+<h1>By <%= note.user.email %> </h1>
 
-<h1>By <%= @note.user.email %> </h1>
+<% if note.user_id == current_user.id %>
+  <form action="<%= note_url(note) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="submit" value="Delete Note" class="btn btn-small btn-danger">
+  </form>
+<% end %>
