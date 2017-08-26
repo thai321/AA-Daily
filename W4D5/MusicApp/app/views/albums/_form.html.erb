@@ -1,11 +1,11 @@
 <% action_url = (action == :edit) ? album_url(album) : albums_url %>
 
 <form class="" action=" <%= action_url %> " method="post">
-<input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <% if action == :edit %>
     <input type="hidden" name="_method" value="PATCH">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
   <% end %>
 
 
@@ -17,10 +17,12 @@
   <label for="album-band"></label>
   <select name="album[band_id]">
     <% Band.all.each do |band| %>
+
       <option <%= "selected" if album.band_id == band.id %>
         value= "<%= band.id %>">
         <%= band.name %>
       </option>
+
     <% end %>
   </select>
 
@@ -33,7 +35,8 @@
 
   <label for="album-live">Live</label>
   <input type="radio" name="album[live]" value="true"
-          <%= "checked" if album.live %> >
+          <%= "checked" if album.live %>
+          >
 
   <br><br>
 

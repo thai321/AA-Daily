@@ -3,4 +3,9 @@
 
 
 <h1>Band's name: <%= @band.name %></h1>
+
+<%= link_to "Edit", edit_band_url(@band), class: 'btn btn-small btn-info' %>
+
+<%= link_to "Create a Album", new_band_album_url(@band), class: 'btn btn-small btn-success' %>
+
 <%= button_to "Delete", @band, method: :delete, class: "btn btn-small btn-danger" %>
