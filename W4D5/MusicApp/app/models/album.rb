@@ -13,11 +13,18 @@
 
 class Album < ApplicationRecord
 
-  validates :title, :band, :live, :year, presence: true
+  validates :title, :band, :year, presence: true
   validates :live, inclusion: [true, false]
   validates :title, uniqueness: { scope: :band_id }
+
+  after_initialize :set_live_default
 
   belongs_to :band
 
   has_many :tracks, dependent: :destroy
+
+  private
+  def set_live_default
+    self.live ||= false
+  end
 end

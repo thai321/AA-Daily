@@ -1,8 +1,10 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:edit, :show, :update, :destroy]
+  before_action :require_user!
 
   def create
     @album = Album.new(album_params)
+    # byebug
     if @album.save
       redirect_to @album
     else
