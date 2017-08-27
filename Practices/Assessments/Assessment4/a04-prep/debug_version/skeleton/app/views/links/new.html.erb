@@ -1,0 +1,17 @@
+<h2>New Link</h2>
+
+<form action="<%= links_url %>" method="post">
+  <%= auth_token_input %>
+
+  <label>
+    Title
+    <input type="text" name="link[title]" value="<%= @link.title %>" id="title">
+  </label>
+
+  <label>
+    URL
+    <input type="text" name="link[url]" value="<%= @link.url %>" id="url">
+  </label>
+
+  <input type="submit" value="Create New Link">
+</form>
