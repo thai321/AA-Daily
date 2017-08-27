@@ -1,6 +1,6 @@
 <% action_url = (action == :sign_in) ? session_url : users_url %>
 
-<form  class="form-signin" action=" <%= action_url %> " method="post">
+<form  class="form-signin" action="<%= action_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label  for="user-email">Email</label>
@@ -11,7 +11,7 @@
   <input id="user-password" type="password" name="user[password]">
 
   <input type="submit"
-         value="<%= (action == :new) ? 'create user' : 'Sign In' %>",
+         value="<%= (action == :new) ? 'Create User' : 'Sign In' %>",
          class="btn btn-small btn-primary"
          >
 </form>

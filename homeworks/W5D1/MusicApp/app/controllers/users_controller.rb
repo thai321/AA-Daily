@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to bands_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :new, status: 400
+      render :new
     end
   end
 
