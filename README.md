@@ -80,7 +80,23 @@
 - W4D5
   - [Helpers, Layouts, and Partials Homework][W4D5-Cat]
 
+
+
+[W5D1-Capybara]: homeworks/W5D1/MusicApp/
+
+- W5D1
+  - [Capybara][W5D1-Capybara]
+
+
+[W5D2-polymorphism-concerns]: homeworks/W5D2/Polymorphism-and-Concerns/
+
+- W5D2
+  - [Polymorphism and Concerns][W5D2-polymorphism-concerns]
+
 -----------
+
+# Daily Project
+
 [W1D1]: W1D1/
 [Enumerables]:W1D1/Enumerables/
 [Ghost]:W1D1/Ghost/
@@ -262,3 +278,9 @@
 
 ## [W4D4][W4D4]
 - [99 Cats II: Auth][W4D4-99Cats]
+
+
+[W4D5]: W4D5/
+[W4D5-Music-App]: W4D5/MusicApp/
+## [W4D5][W4D5]
+- [Music App][W4D5-Music-App]
