@@ -1,0 +1,14 @@
+<h1><%= @track.title %></h1>
+
+<%= link_to "Edit", edit_track_url(@track), class: 'btn btn-small btn-info' %>
+
+<%= link_to "Track's album", @track.band, class: 'btn btn-small btn-primary' %>
+
+<%= button_to "Delete", @track , method: :delete, class: 'btn btn-small btn-danger' %>
+
+
+<% @track.notes.each do |note| %>
+  <%= render 'notes/note', note: note %>
+<% end %>
+
+<%= render 'notes/form', track: @track %>

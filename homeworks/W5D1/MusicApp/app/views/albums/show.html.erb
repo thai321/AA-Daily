@@ -1,0 +1,9 @@
+<h1><%= @album.title %></h1>
+
+<%= link_to "Edit", edit_album_url(@album), class: 'btn btn-small btn-info' %>
+
+<%= link_to "Album's band", @album.band, class: 'btn btn-small btn-primary' %>
+
+<%= link_to "Create a track", new_album_track_url(@album), class: 'btn btn-small btn-success' %>
+
+<%= button_to "Delete", @album , method: :delete, class: 'btn btn-small btn-danger' %>

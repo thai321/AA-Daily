@@ -1,0 +1,8 @@
+<ul>
+  <li>Band's name:
+    <%= link_to band.name, band %>
+  </li>
+  <%= link_to "Edit", edit_band_url(band), class: 'btn btn-xs btn-info' %>
+
+  <%= button_to "Delete", band, class: 'btn btn-xs btn-danger', method: :delete %>
+</ul>
