@@ -112,7 +112,7 @@ feature 'the Goal Edit process' do
       choose('goal_private')
       choose('goal_completed')
 
-      click_button 'Update Goal'
+      click_on 'Update Goal'
 
       expect(page).to have_content('Some title edit')
       expect(page).to have_content('Some description edit')

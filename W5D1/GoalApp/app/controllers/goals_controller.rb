@@ -28,10 +28,14 @@ class GoalsController < ApplicationController
 
   def edit
     @goal = current_user.goals.find(params[:id])
-    render :edit
   end
 
   def update
+    # byebug
+    @goal = Goal.find(params[:id])
+    @goal.update_attributes(goal_params)
+    flash[:errors] = @goal.errors.full_messages
+    redirect_to current_user
   end
 
   private
