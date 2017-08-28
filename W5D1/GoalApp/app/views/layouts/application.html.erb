@@ -9,6 +9,14 @@
   </head>
 
   <body>
+
+    <% if login? %>
+      <%= button_to 'Sign Out', session_url, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign In Page', new_session_url %>
+      <%= link_to 'Sign Up Page', new_user_url %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
