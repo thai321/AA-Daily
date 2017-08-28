@@ -19,5 +19,10 @@ FactoryGirl.define do
       username 'thai'
       password 'password'
     end
+
+    factory :other do
+      username 'other'
+      password 'password'
+    end
   end
 end

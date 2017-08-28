@@ -31,7 +31,6 @@ class GoalsController < ApplicationController
   end
 
   def update
-    # byebug
     @goal = Goal.find(params[:id])
     @goal.update_attributes(goal_params)
     flash[:errors] = @goal.errors.full_messages

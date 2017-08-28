@@ -1,0 +1,14 @@
+<% feedbacks.each do |comment| %>
+  <%= comment.content %>
+<% end %>
+
+<form action="<%= user_usercomments_url(params[:id]) %>" method="post">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>New Comment
+    <textarea name="user_comment[content]" rows="8" cols="80"></textarea>
+  </label>
+
+  <input type="submit" value="Add Comment">
+</form>

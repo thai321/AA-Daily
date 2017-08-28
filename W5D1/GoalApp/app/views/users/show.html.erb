@@ -3,3 +3,7 @@
 <% if !@goals.nil? %>
   <%= render 'goals/goal', goals: @goals %>
 <% end %>
+
+<% if !@feedbacks.nil? %>
+  <%= render 'usercomments/feedbacks', feedbacks: @feedbacks %>
+<% end %>
