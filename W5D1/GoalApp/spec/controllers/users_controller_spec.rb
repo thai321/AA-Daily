@@ -76,7 +76,7 @@ RSpec.describe UsersController, type: :controller do
             password: 'password'
           }
         }
-        expect(response).to redirect_to(User.last)
+        expect(response).to redirect_to(users_url)
       end
     end
   end
