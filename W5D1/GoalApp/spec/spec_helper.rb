@@ -31,6 +31,15 @@ def sign_in_as(user)
   click_button 'Sign In'
 end
 
-def sign_out_as(user)
+def go_into_goal_form(user)
+  sign_in_as(user)
+  click_on 'New Goal'
+end
 
+def create_goal(user)
+  go_into_goal_form(user)
+
+  fill_in 'Title', with: 'Some title'
+  fill_in 'Description', with: 'Some description'
+  click_button "Create Goal"
 end

@@ -1,0 +1,11 @@
+<% goals.each do |goal| %>
+  <%= goal.title %>
+  <%= goal.description %>
+
+  <%= goal.private ? "Private" : "Public" %>
+  Completed: <%= goal.completed ? "Yes" : "No" %>
+
+  <%= link_to "Edit", edit_goal_url(goal) %>
+  <%= button_to "Delete", goal, method: :delete %>
+
+<% end %>
