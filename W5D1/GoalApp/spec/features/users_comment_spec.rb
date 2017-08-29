@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
-feature 'the Creating User process' do
+feature 'the Creating User Comment process' do
   subject(:thai) { FactoryGirl.build(:thai) }
   subject(:other) { FactoryGirl.build(:other) }
 
@@ -21,6 +21,7 @@ feature 'the Creating User process' do
     click_button 'Add Comment'
 
     expect(page).to have_content 'Hello There'
+    expect(current_path).to eq user_path(other)
   end
 
 end

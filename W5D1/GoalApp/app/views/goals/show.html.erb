@@ -1,2 +1,17 @@
-<h1>Goals#show</h1>
-<p>Find me in app/views/goals/show.html.erb</p>
+
+<%= @goal.title  %>
+<%= @goal.description %>
+
+<%= @comments.each do |comment| %>
+  <%= comment.content %>
+<% end %>
+
+<h1>New Goal Comment</h1>
+<form action="<%= goal_goal_comments_url(@goal) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>New Comment
+    <textarea name="goal_comment[content]" rows="8" cols="80"></textarea>
+  </label>
+  <input type="submit" value="Add Goal Comment">
+</form>

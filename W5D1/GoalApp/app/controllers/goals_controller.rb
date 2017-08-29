@@ -24,6 +24,9 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @goal = Goal.find(params[:id])
+    @comments = @goal.goal_comments
+    render :show
   end
 
   def edit
