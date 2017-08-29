@@ -6,3 +6,13 @@
 <% if current_user.posts.find(@post.id) %>
   <%= link_to 'Edit Post', edit_post_url(@post) %>
 <% end %>
+
+<h2>Comments</h2>
+<%= link_to 'Comment on this post!', new_post_comment_url(@post) %>
+
+<h3>List comments:</h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= link_to comment.content.truncate_words(10), comment %></li>
+  <% end %>
+</ul>

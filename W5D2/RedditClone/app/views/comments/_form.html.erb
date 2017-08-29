@@ -1,0 +1,16 @@
+
+
+<form action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="comment-content">Body</label>
+  <br>
+
+  <textarea id="comment-content" name="comment[content]" rows="4" cols="30"></textarea>
+
+  <input type="hidden" name="comment[post_id]" value="<%= params[:post_id] %>">
+
+  <input type="hidden" name="comment[parent_id]" value="<%= params[:id] %>">
+
+  <br>
+  <a><input type="submit" value="Submit!"></a>
+</form>
