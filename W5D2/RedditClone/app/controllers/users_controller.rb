@@ -13,10 +13,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # byebug
     if @user.save
       login!(@user)
-      redirect_to users_url
+      redirect_to subs_url
     else
       flash[:errors] = @user.errors.full_messages
       render :new

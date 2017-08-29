@@ -3,9 +3,9 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username        :string
-#  password_digest :string
-#  session_token   :string
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -17,6 +17,12 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   attr_reader :password
+
+  has_many :subs,
+    primary_key: :id,
+    foreign_key: :moderator_id,
+    class_name: :Sub,
+    inverse_of: :moderator
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

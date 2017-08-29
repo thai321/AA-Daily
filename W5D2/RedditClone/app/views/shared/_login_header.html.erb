@@ -1,5 +1,10 @@
 <% if login? %>
   </h1>Hello <%= current_user.username  %></h1>
+  <br>
+  <%= link_to 'Create a sub!', new_sub_url %>
+  <br>
+  <%= link_to 'All Subs', subs_url %>
+  <br>
   <%= button_to 'Sign Out', session_url, method: :delete %>
 <% else %>
   <%= link_to 'Sign In', new_session_url %>
