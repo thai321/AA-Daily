@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :goal_comments, only: [:create]
   end
 
-  resources :goal_comments, only: [:new, :show]
+  # resources :goal_comments, only: [:new, :show]
+  resources :comments, only: [:create]
 
 end
