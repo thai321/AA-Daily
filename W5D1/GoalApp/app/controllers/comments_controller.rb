@@ -1,16 +1,11 @@
 class CommentsController < ApplicationController
 
-
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
+    @comment.save
 
-    if @comment.save
-      flash[:notices] = ['Comment saved!']
-    else
-      flash[:errors] = @comment.errors.full_messages
-    end
-
+    flash[:errors] = @comment.errors.full_messages
     redirect_to users_url
   end
 
