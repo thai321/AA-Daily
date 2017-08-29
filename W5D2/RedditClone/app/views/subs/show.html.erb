@@ -1,4 +1,14 @@
 <h1><%= @sub.title %></h1>
 <h3>Description</h3>
 <p><%= @sub.description %></p>
-<%= link_to 'Edit', edit_sub_url(@sub) %>
+
+<br>
+<%= link_to 'Make New Post!', new_post_url %>
+<br><br>
+<%= link_to 'Edit Sub', edit_sub_url(@sub) %>
+
+<ul>
+  <% Post.all.each do |post| %>
+  <li><%= link_to post.title, post %></li>
+  <% end %>
+</ul>

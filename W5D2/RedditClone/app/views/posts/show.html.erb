@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<br>
+<h3>Content:</h3>
+<p><%= @post.content %></p>
+
+<% if current_user.posts.find(@post.id) %>
+  <%= link_to 'Edit Post', edit_post_url(@post) %>
+<% end %>
