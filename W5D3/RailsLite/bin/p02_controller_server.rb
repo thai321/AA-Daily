@@ -9,7 +9,13 @@ class MyController < ControllerBase
       redirect_to("/cats")
     end
   end
+
+  def render_content(content, content_type)
+    @res['Content-Type'] = content_type
+    @res['content'] = conten
+  end
 end
+
 app = Proc.new do |env|
   req = Rack::Request.new(env)
   res = Rack::Response.new
@@ -21,4 +27,3 @@ Rack::Server.start(
   app: app,
   Port: 3000
 )
-
