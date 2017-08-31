@@ -81,3 +81,59 @@ const isSubstring = (searchString, subString) =>
 console.log(isSubstring('time to program', 'time')); // true
 
 console.log(isSubstring('Jump for joy', 'joys')); // false
+
+console.log('#######Phase II - JS Looping Constructs#######');
+
+console.log('-------------fizzBuzz----------');
+// Define a function fizzBuzz(array) that takes an array and
+// returns a new array of every number in the array that is
+// divisible by either 3 or 5, but not both
+const fizzbuzz = arr => {
+  let new_arr = [];
+  for (x in arr) {
+    if ((x % 3 || x % 5) && !(x % 3 && x % 5)) {
+      new_arr.push(x);
+    }
+  }
+  return new_arr;
+};
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 75];
+console.log(fizzbuzz(arr));
+
+console.log('-----isPrime--------');
+
+const isPrime = num => {
+  if (num == 0 || num == 1) return false;
+  if (num == 2) return true;
+  for (i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i == 0) return false;
+  }
+  return true;
+};
+
+console.log(isPrime(2));
+console.log(isPrime(9));
+console.log(isPrime(10));
+console.log(isPrime(29));
+console.log(isPrime(97));
+
+console.log('-----sumOfNPrimes--------');
+const sumOfNPrimes = n => {
+  let count = 0;
+  let sum = 0;
+  let i = 2;
+
+  while (count < n) {
+    if (isPrime(i)) {
+      sum += i;
+      count++;
+    }
+    i++;
+  }
+  return sum;
+};
+
+console.log(sumOfNPrimes(0));
+console.log(sumOfNPrimes(1));
+console.log(sumOfNPrimes(4));
