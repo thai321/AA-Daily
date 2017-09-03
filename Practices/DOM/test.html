@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+</head>
+
+<body>
+
+  <ul>
+  <li>Racecars</li>
+  <li>Lasers</li>
+  <li>Aeroplanes</li>
+</ul>
+
+<script>
+var $listItems = $('li');
+$listItems.on('mouseover', event => {
+  const currentTarget = event.currentTarget;
+  const $currentTarget = $(currentTarget);
+  alert($currentTarget.text());
+});
+</script>
+
+  <label>
+  <input type="radio" name="duck[favorite_toy]" value="racecars">
+  Racecars
+</label>
+
+<label>
+  <input type="radio" name="duck[favorite_toy]" value="lasers">
+  Lasers
+</label>
+
+<label>
+  <input type="radio" name="duck[favorite_toy]" value="aeroplanes">
+  Aeroplanes
+</label>
+
+
+<script>
+window.setInterval(() => {
+  const $coolInputs = $('input');
+
+  // unselect any item.
+  $coolInputs.prop('checked', false);
+
+  // randomly samples a number 0...3.
+  const i = Math.floor(3 * Math.random());
+
+  // Indexing takes us out of jQuery world!
+  const coolInput = $coolInputs[i];
+  // We can **wrap** an HTMLElement to create a jQuery object with one
+  // item; the wrapped element.
+  const $coolInput = $(coolInput);
+  $coolInput.prop('checked', true);
+}, 200);
+</script>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<input type="text" id="cool-input">
+
+<script>
+window.setInterval(() => {
+  const $coolInput = $('#cool-input');
+
+  if ($coolInput.val() == 'racecars') {
+    // Reset the input on them!
+    $coolInput.val('lasers');
+  }
+}, 1000);
+</script>
+
+
+  <style>
+    .red {
+      background-color: red
+    }
+
+    .green {
+      background-color: green
+    }
+  </style>
+
+  <ul id="cats">
+    <li class="green">Markov</li>
+    <li class="red">Markov</li>
+  </ul>
+
+  <p>ALL PARAGRAPHS MUST DIE</p>
+
+  <label>
+Name
+<input type="text" name="cat[name]" id="cat_name">
+</label>
+
+
+<button id="alert-button">Click Me For An Alert</button>
+
+<input type="text" id="mystring">
+
+<p id="mystring-reversed"></p>
+
+<script>
+const buttonEl = document.getElementById('alert-button');
+buttonEl.addEventListener('click', event => {
+  alert('HELLO');
+});
+
+const inputEl = document.getElementById('mystring');
+const pEl = document.getElementById('mystring-reversed');
+inputEl.addEventListener('input', () => {
+  const value = inputEl.value;
+  pEl.textContent = value.split('').reverse().join('');
+});
+
+pEl.addEventListener('mouseover', () => {
+  alert('YOU MOUSED OVER ME!');
+});
+</script>
+
+  <script>
+  window.setTimeout(() => {
+  const reds = document.getElementsByClassName('red');
+  const greens = document.getElementsByClassName('green');
+
+  // swap the `HTMLElement#className` property
+  for (let i = 0; i < reds.length; i++) {
+    reds[i].className = 'green';
+  }
+  for (let i = 0; i < greens.length; i++) {
+    greens[i].className = 'red';
+  }
+
+  // disable the input
+  document.getElementById('cat_name').disabled = true;
+
+  // Remove a paragraph from the document.
+  const paragraph = document.querySelector('p');
+  paragraph.parentElement.removeChild(paragraph);
+}, 1000);
+</script>
+
+</body>
+
+</html>
