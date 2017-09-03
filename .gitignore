@@ -1,4 +1,6 @@
 .DS_Store
 .byebug_history
 Gemfile.lock
+
+!homeworks/W6D2/*
 bundle.js
