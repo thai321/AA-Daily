@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 const reader = readline.createInterface({
   input: process.stdin,
@@ -7,7 +7,7 @@ const reader = readline.createInterface({
 
 function addNumbers(sum, numsLeft, completionCallback) {
   if (numsLeft > 0) {
-    reader.question("Enter a number: ", function(inputString) {
+    reader.question('Enter a number: ', function(inputString) {
       const num = parseInt(inputString);
       addNumbers(sum + num, numsLeft - 1, completionCallback);
     });
