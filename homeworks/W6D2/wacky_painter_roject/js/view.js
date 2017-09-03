@@ -37,12 +37,15 @@ View.prototype.exercise3 = function() {
   //Challenge: Add an <h1> with the text 'i love jquery' under the grid.
   //Result: An <h1> with the text 'i love jquery' appears under the grid.
   //your code here!
+  const h1Text = $('<h1>').text('i love jquery');
+  $('#easel').append(h1Text);
 };
 
 View.prototype.exercise4 = function() {
   //Challenge: Write your first name in every other square.
   //Result: Your name appears in every other square.
   //your code here!
+  $('.square:nth-child(even)').text('Thai');
 };
 
 View.prototype.exercise5 = function() {
@@ -52,6 +55,13 @@ View.prototype.exercise5 = function() {
   //hint: checkout the addRow function at the bottom of the file: we set the
   //  'data-pos' of every square
   //your code here!
+
+  const $square = $('.square');
+  $square.on('click', e => {
+    const $current = $(e.currentTarget);
+    const pos = $current.data('pos');
+    alert(pos);
+  });
 };
 
 View.prototype.exercise6 = function() {
@@ -60,6 +70,12 @@ View.prototype.exercise6 = function() {
   //should become a beautiful rainbow of colors.
   //hint: use window._randomColorString() (defined at top) to get a random color!
   //your code here!
+
+  const squares = $('.square');
+  squares.each((index, square) => {
+    const $square = $(square);
+    $square.css('background-color', window._randomColorString());
+  });
 };
 
 View.prototype.exercise7 = function() {
@@ -69,6 +85,11 @@ View.prototype.exercise7 = function() {
   //You should push the button for exercise 6 first to try it on the
   //rainbow.
   //your code here!
+
+  $('.square').on('mouseover', e => {
+    const $square = $(e.currentTarget);
+    console.log($square.css('background-color'));
+  });
 };
 
 View.prototype.setupEasel = function() {
