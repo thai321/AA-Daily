@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 const reader = readline.createInterface({
   input: process.stdin,
@@ -10,27 +10,42 @@ class Game {
     this.towers = [[3, 2, 1], [], []];
   }
 
-  run() {
+  run(reader, completionCallBack) {
     // until game over
-    // get move from player (from, to)
-    // make the move
+    this.promptMove(reader, (fromIndex, toIndex) => {
+      if (this.move(fromIndex, toIndex) && this.isWon()) {
+        completionCallBack();
+        return;
+      } else {
+        console.log('Invalid Move! try again');
+      }
+      this.run(reader, completionCallBack);
+    });
   }
 
-  promptMove() {
+  promptMove(reader, callback) {
     // print the stacks
     console.log(this.towers);
+
     // get move from user
-
-    // run callback with fromIndex and toIndex
-  }
-
-  getMove() {
-    reader.question("Which tower will you move from?: ", function(from) {
-      reader.question("Which tower will you move to?: ", function(to) {
+    reader.question('Which tower will you move from?: ', function(from) {
+      reader.question('Which tower will you move to?: ', function(to) {
         const fromIndex = parseInt(from);
         const toIndex = parseInt(to);
+
+        // run callback with fromIndex and toIndex
+        callback(fromIndex, toIndex);
       });
     });
+  }
+
+  move(fromIndex, toIndex) {
+    if (this.isValidMove(fromIndex, toIndex)) {
+      this.towers[toIndex].push(this.towers[fromIndex].pop());
+      return true;
+    } else {
+      return false;
+    }
   }
 
   isValidMove(fromIndex, toIndex) {
@@ -47,7 +62,16 @@ class Game {
     }
     return true;
   }
+
+  isWon() {
+    return this.towers[1].length == 3 || this.towers[2].length == 3;
+  }
+}
+
+function completionCallBack() {
+  console.log('You Won');
+  reader.close();
 }
 
 const game = new Game();
-console.log(game.isValidMove(1, 2));
+game.run(reader, completionCallBack);
