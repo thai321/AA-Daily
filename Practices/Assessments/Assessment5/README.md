@@ -1113,6 +1113,7 @@ console.log([4, 5, 6].myZip([1, 2], [8])); // [[4,1,8], [5,2, undefined], [6, un
 // return the first n prime numbers.
 
 const isPrime = num => {
+  if (num === 1) return false
   for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) return false;
   }
@@ -1136,5 +1137,171 @@ const primes = n => {
 };
 
 console.log(primes(4)); // [2,3,5,7]
+
+```
+
+-----------
+
+
+### Prime Factorization
+
+```js
+// Write a recursive function that returns the prime factorization of
+// a given number. Assume num > 1
+
+function isPrime(n) {
+  if (n === 1) return false;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+
+  return true;
+}
+
+const primeFactorization = num => {
+  if (num === 1) return [];
+  if (num === 2) return [2];
+
+  let i = 2;
+  while (!(isPrime(i) && num % i === 0)) {
+    i++;
+  }
+
+  let result = [i];
+  return result.concat(primeFactorization(num / i));
+};
+
+console.log(primeFactorization(12)); // [2,2,3]
+console.log(primeFactorization(600851475143)); // [71,839,1471,6857]
+
+```
+
+
+---------
+
+### Quick Sort
+
+```js
+//Hint: quickSort checks by pivoting!
+//Hint 2: The solution is a bit different than the solution in Ruby!
+
+Array.prototype.quickSort = function(comp) {
+  if (this.length < 2) return this;
+
+  if (typeof comp !== 'function') {
+    comp = (x, y) => {
+      if (x === y) return 0;
+      if (x > y) return 1;
+      return -1;
+    };
+  }
+
+  const pivot = this[0];
+
+  const left = [];
+  const right = [];
+
+  for (let i = 1; i < this.length; i++) {
+    const op = comp(pivot, this[i]);
+
+    if (op === 1) left.push(this[i]);
+    else right.push(this[i]);
+  }
+
+  return left.quickSort(comp).concat(pivot, right.quickSort(comp));
+};
+
+// this call back is essentially the prc we would pass in ruby.
+
+const compA = (a, b) => {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
+
+const reversed = (x, y) => {
+  if (x < y) {
+    return 1;
+  } else if (x > y) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
+
+const testNoComp = [7, 3, 5, 2, 8, 1, 9, 3, 4].quickSort();
+const testWithComp = [7, 3, 5, 2, 8, 1, 9, 3, 4].quickSort(compA);
+const testReverse = [7, 3, 5, 2, 8, 1, 9, 3, 4].quickSort(reversed);
+console.log(testNoComp);
+console.log(testWithComp);
+console.log(testReverse);
+
+```
+
+
+---------
+
+### Range
+
+```js
+// range(start, end) - receives a start and end value,
+// returns an array from start up to end. Use recursion!
+function range(start, end) {
+  if (start === end) return end;
+
+  return [start].concat(range(++start, end));
+}
+console.log(range(3, 10));
+
+```
+
+
+---------
+
+### Real Words in String
+
+```js
+// Returns an array of all the subwords of the string that appear in the
+// dictionary argument. The method does NOT return any duplicates.
+
+String.prototype.realWords = function(dictionary) {
+  const result = [];
+
+  for (let i = 0; i < this.length - 1; i++) {
+    for (let j = i + 1; j < this.length; j++) {
+      const substring = this.slice(i, j);
+      if (!result.includes(substring) && dictionary.includes(substring))
+        result.push(substring);
+    }
+  }
+
+  return result;
+};
+
+console.log('asdfcatqwer'.realWords(['cat', 'car'])); // ['cat']
+console.log('batcabtarbrat'.realWords(['cat', 'car'])); // []
+console.log('erbearsweatmyajs'.realWords(['bears', 'ear', 'a', 'army']));
+// ["bears", "ear", "a"]
+
+```
+
+-------
+
+### Recursive Sum
+
+```js
+//Write a recursive method that returns the sum of all elements in an array
+const recSum = nums => {
+  if (nums.length < 2) return nums[0];
+
+  return nums[0] + recSum(nums.slice(1));
+};
+
+console.log(recSum([5, 45, 7])); // 57
+console.log(recSum([1, 2, 3])); // 6
 
 ```
