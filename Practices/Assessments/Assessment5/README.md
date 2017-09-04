@@ -100,24 +100,15 @@ console.log(caesarCipher('the bear', 3)); // wkh ehdu
 function curriedSum(numArgs) {
   const numbers = [];
 
-  function curry(num) {
-    numbers.push(num);
+  function _curriedSum(n) {
+    numbers.push(n);
 
-    if (numbers.length === numArgs) {
-      let total = 0;
-      numbers.forEach(n => {
-        total += n;
-      });
-
-      return total;
-    } else {
-      return curry;
-    }
+    if (numbers.length === numArgs) return numbers.reduce((a, b) => a + b);
+    else return _curriedSum;
   }
 
-  return curry;
+  return _curriedSum;
 }
-
 const sum = curriedSum(4);
 console.log(sum(5)(30)(20)(1)); // => 56
 ```
@@ -135,38 +126,32 @@ console.log(sum(5)(30)(20)(1)); // => 56
 // Write a version that uses Function.prototype.apply and another one that uses ... the spread operator.
 
 // using spread
-Function.prototype.curry = function(numArgs) {
+Function.prototype.curry = function curry(numArgs) {
   const args = [];
   const func = this;
 
-  function curry(num) {
-    args.push(num);
+  function _curry(item) {
+    args.push(item);
 
-    if (args.length === numArgs) {
-      return func(...args);
-    } else {
-      return curry;
-    }
+    if (args.length === numArgs) return func.apply(null, args);
+    else return _curry;
   }
 
-  return curry;
+  return _curry;
 };
 
-// using apply
-Function.prototype.curry1 = function(numArgs) {
+Function.prototype.curry1 = function curry1(numArgs) {
   const args = [];
-  let fn = this;
+  const func = this;
 
-  function _curried(num) {
-    args.push(num);
-    if (args.length == numArgs) {
-      return fn.apply(null, args);
-    } else {
-      return _curried;
-    }
+  function _curry(item) {
+    args.push(item);
+
+    if (args.length === numArgs) return func(...args);
+    else return _curry;
   }
 
-  return _curried;
+  return _curry;
 };
 
 function sumThree(num1, num2, num3) {
