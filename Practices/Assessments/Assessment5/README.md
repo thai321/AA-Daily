@@ -72,7 +72,7 @@ function caesarCipher(str, shift) {
   const result = [];
 
   for (let i = 0; i < str.length; i++) {
-    if (str[i] == ' ') {
+    if (str[i] === ' ') {
       result.push(' ');
       continue;
     }
@@ -100,10 +100,10 @@ console.log(caesarCipher('the bear', 3)); // wkh ehdu
 function curriedSum(numArgs) {
   const numbers = [];
 
-  function _curriedSum(num) {
+  function curry(num) {
     numbers.push(num);
 
-    if (numbers.length == numArgs) {
+    if (numbers.length === numArgs) {
       let total = 0;
       numbers.forEach(n => {
         total += n;
@@ -111,11 +111,11 @@ function curriedSum(numArgs) {
 
       return total;
     } else {
-      return _curriedSum;
+      return curry;
     }
   }
 
-  return _curriedSum;
+  return curry;
 }
 
 const sum = curriedSum(4);
@@ -137,19 +137,19 @@ console.log(sum(5)(30)(20)(1)); // => 56
 // using spread
 Function.prototype.curry = function(numArgs) {
   const args = [];
-  const fn = this;
+  const func = this;
 
-  function _curriedFn(num) {
+  function curry(num) {
     args.push(num);
 
     if (args.length === numArgs) {
-      return fn(...args);
+      return func(...args);
     } else {
-      return _curriedFn;
+      return curry;
     }
   }
 
-  return _curriedFn;
+  return curry;
 };
 
 // using apply
@@ -180,8 +180,8 @@ function sumThree2(num1, num2, num3) {
 }
 let cur1 = sumThree2.curry1(3)(4)(20)(6);
 console.log(cur1); // 30
-```
 
+```
 --------
 
 ### Digital Root
@@ -503,11 +503,8 @@ Array.prototype.median = function() {
   const mid = Math.floor(this.length / 2);
   let arr = this.sort();
 
-  if (this.length % 2 === 1) {
-    return arr[mid];
-  } else {
-    return (arr[mid - 1] + arr[mid]) / 2;
-  }
+  if (this.length % 2 === 1) return arr[mid];
+  else return (arr[mid - 1] + arr[mid]) / 2;
 };
 
 console.log([1, 2, 3, 4, 5, 6].median()); // 3.5
@@ -515,6 +512,7 @@ console.log([1, 2, 3, 4, 5].median()); // 3
 console.log([3, 2, 6, 7].median()); // 4.5
 console.log([3, 2, 6, 7, 1].median()); // 3
 console.log([].median()); // undefined
+
 
 ```
 
@@ -604,12 +602,12 @@ console.log([1, 9, 2, 3, 3, 0, 5, 6, 43, 3, 24, 15, 17].mergeSort(reversed)); //
 // pt 1 is the ANTI fat arrow method;
 
 Function.prototype.myBind1 = function(ctx) {
-  const fn = this;
+  const that = this;
   const bindArgs = Array.from(arguments).slice(1);
 
   return function() {
     const callArgs = Array.from(arguments);
-    return fn.apply(ctx, bindArgs.concat(callArgs));
+    return that.apply(ctx, bindArgs.concat(callArgs));
   };
 };
 
@@ -726,11 +724,8 @@ Array.prototype.myFlatten = function() {
   let result = [];
 
   this.forEach(el => {
-    if (el instanceof Array) {
-      result = result.concat(el.myFlatten(el));
-    } else {
-      result.push(el);
-    }
+    if (el instanceof Array) result = result.concat(el.myFlatten(el));
+    else result.push(el);
   });
   return result;
 };
@@ -767,7 +762,6 @@ const testerThreeDeep = [1, [2, 3, [[['a'], 6]]], [4, [5]]].myControlledFlatten(
 ); // [1,2,3,["a"], 6, 4,5]
 console.log(testerTwoDeep);
 console.log(testerThreeDeep);
-
 ```
 
 
@@ -811,9 +805,7 @@ Array.prototype.myForEach = function(cb) {
 Array.prototype.myInject = function(cb) {
   let accum = this.shift();
 
-  this.myForEach(e => {
-    accum = cb(accum, e);
-  });
+  this.myForEach(e => (accum = cb(accum, e)));
 
   return accum;
 };
@@ -827,6 +819,7 @@ let testMinus = [1, 2, 3, 4].myInject(function(a, b) {
 });
 console.log(test); // 10
 console.log(testMinus); // -8
+
 
 ```
 
