@@ -30,11 +30,11 @@ Game.prototype.randomPosition = function randomPosition() {
 
 Game.prototype.draw = function draw(ctx) {
   // void ctx.clearRect(x, y, width, height);
+  // call draw method on each of the asteroid
   ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
 
-  // call draw method on each of the asteroid
   this.asteroids.forEach(asteroid => {
     asteroid.draw(ctx);
   });
@@ -64,8 +64,10 @@ Game.prototype.checkCollisions = function checkCollisions() {
         if (asteroid1.isCollidedWith(asteroid2)) {
           alert('COLLISION');
           const i = this.asteroids.indexOf(asteroid1);
+          this.remove(i);
           const j = this.asteroids.indexOf(asteroid2);
-          this.remove(i, j);
+          this.remove(j);
+          // debugger;
           return;
         }
       }
@@ -73,9 +75,8 @@ Game.prototype.checkCollisions = function checkCollisions() {
   }
 };
 
-Game.prototype.remove = function remove(i, j) {
+Game.prototype.remove = function remove(i) {
   this.asteroids.splice(i, 1);
-  this.asteroids.splice(j, 1);
 };
 
 Game.prototype.step = function step() {

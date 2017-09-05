@@ -2,8 +2,8 @@ const MovingObject = require('./moving_object.js');
 const Util = require('./utils.js');
 
 const COLOR = 'green';
-const RADIUS = 7;
-const SPEED = 5;
+const RADIUS = 17;
+const SPEED = 10;
 
 function Asteroid(options) {
   // to access the code that sets properties such as this.pos and this.vel

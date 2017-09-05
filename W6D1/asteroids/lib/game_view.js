@@ -11,9 +11,9 @@ GameView.prototype.start = function start() {
 
   setInterval(() => {
     // this.game.moveObjects(DIRS[i]);
-    this.game.draw(this.ctx);
     this.game.step();
-  }, 20);
+    this.game.draw(this.ctx);
+  }, 300);
 };
 
 module.exports = GameView;

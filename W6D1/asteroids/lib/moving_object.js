@@ -16,7 +16,7 @@ MovingObject.prototype.draw = function draw(ctx) {
 
   ctx.beginPath();
   // void ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-  ctx.arc(x, y, this.radius, 0, 2 * Math.PI);
+  ctx.arc(x, y, this.radius + 1, 0, 2 * Math.PI, true);
 
   ctx.fill();
 };

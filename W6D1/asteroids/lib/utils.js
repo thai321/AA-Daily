@@ -23,7 +23,9 @@ const Util = {
     const x_2 = pos2[0];
     const y_2 = pos2[1];
 
-    return Math.sqrt(Math.pow(x_1 - x_2, 2) + Math.pow(y_1 - y_2, 2));
+    return Math.floor(
+      Math.sqrt(Math.pow(x_1 - x_2, 2) + Math.pow(y_1 - y_2, 2))
+    );
   },
 
   norm(pos) {
