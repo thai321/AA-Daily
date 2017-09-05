@@ -28,6 +28,12 @@ const Util = {
 
   norm(pos) {
     return this.distance([0, 0], pos);
+  },
+
+  changePos(point, dim) {
+    if (point > dim) return point % dim;
+    else if (point < 0) return dim - point % dim;
+    return point;
   }
 };
 

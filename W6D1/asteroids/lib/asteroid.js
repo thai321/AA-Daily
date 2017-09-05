@@ -13,6 +13,7 @@ function Asteroid(options) {
   this.radius = options['radius'] || RADIUS;
   this.vel = options['vel'] || Util.randomVec(SPEED);
   this.pos = options['pos'];
+  this.game = options.game;
 }
 
 Util.inherits(Asteroid, MovingObject);
