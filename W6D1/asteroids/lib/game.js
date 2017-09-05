@@ -3,7 +3,7 @@ const Util = require('./utils.js');
 
 Game.DIM_X = 800;
 Game.DIM_Y = 800;
-Game.NUM_ASTEROIDS = 4;
+Game.NUM_ASTEROIDS = 10;
 // Game.DIRS = [[0, 1], [0, -1], [1, 0], [-1, 0]];
 
 function Game() {
@@ -66,7 +66,6 @@ Game.prototype.checkCollisions = function checkCollisions() {
           const i = this.asteroids.indexOf(asteroid1);
           const j = this.asteroids.indexOf(asteroid2);
           this.remove(i, j);
-
           return;
         }
       }
