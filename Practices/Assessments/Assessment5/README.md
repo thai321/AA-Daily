@@ -1290,3 +1290,135 @@ console.log(recSum([5, 45, 7])); // 57
 console.log(recSum([1, 2, 3])); // 6
 
 ```
+
+
+---------
+
+### String Include Key
+
+```js
+// Write a recursive method that takes in a string to search and a key string.
+// Return true if the string contains all of the characters in the key
+// in the same order that they appear in the key.
+
+const stringIncludeKey = (string, key) => {
+  if (key.length === 1) return true;
+
+  const i = string.indexOf(key[0]);
+
+  return i !== -1 && stringIncludeKey(string.slice(i + 1), key.slice(1));
+};
+
+console.log(stringIncludeKey('cadbpc', 'abc')); //true
+console.log(stringIncludeKey('cba', 'abc')); // false
+
+```
+
+
+-----------
+
+###  Sum Args
+
+
+```js
+function sum(...nums) {
+  return nums.reduce((a, b) => a + b);
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+```
+
+
+---------
+
+### Symmetric Substrings
+
+```js
+// Write a String#symmetric_substrings method that returns an array of substrings
+// that are palindromes, e.g. "cool". symetricSubstrings => ["oo"]
+// Only include substrings of length > 1.
+
+String.prototype.symetricSubstrings = function symetricSubstrings() {
+  const result = [];
+
+  for (let i = 0; i < this.length - 1; i++) {
+    for (let j = i + 1; j < this.length; j++) {
+      const subStr = this.slice(i, j + 1);
+      const s1 = Array.from(subStr);
+      if (isPalindrome(s1, subStr)) result.push(subStr);
+    }
+  }
+
+  return result;
+};
+
+const isPalindrome = (s1, s2) => {
+  return s1.reverse().join('').toString() === s2;
+};
+
+console.log('cool'.symetricSubstrings()); // ['oo']
+console.log('aba'.symetricSubstrings()); // ['aba']
+console.log('aba1cdc'.symetricSubstrings()); // ["aba", "cdc"]
+console.log('xabax'.symetricSubstrings()); // ["xabax", "aba"]
+
+```
+
+---------
+
+### Titleize
+
+```js
+// Write a method that capitalizes each word in a string like a book title
+// Do not capitalize words like 'a', 'and', 'of', 'over' or 'the'
+
+const titleize = title => {
+  const special = ['a', 'and', 'of', 'over', 'the'];
+
+  let result = title.split(' ').map(word => {
+    if (special.includes(word)) return word.toLowerCase();
+    else return word[0].toUpperCase() + word.slice(1);
+  });
+
+  result = result.join(' ');
+  return result[0].toUpperCase() + result.slice(1);
+};
+
+console.log(titleize('the bridge over the river kwai'));
+console.log(titleize('SHADES OF GREY'));
+
+```
+
+
+-------
+
+### Two Sum
+
+```js
+// Write a method, `Array#two_sum`, that finds all pairs of positions where the
+// elements at those positions sum to zero.
+//
+// NB: ordering matters. I want each of the pairs to be sorted smaller index
+// before bigger index. I want the array of pairs to be sorted
+// "dictionary-wise":
+// [0, 2] before [1, 2] (smaller first elements come first)
+// [0, 1] before [0, 2] (then smaller second elements come first)
+
+Array.prototype.twoSum = function twoSum() {
+  const pairs = [];
+  const memo = {};
+
+  this.forEach((el, i) => {
+    const target = el * -1;
+
+    if (memo[target]) memo[target].map(j => pairs.push([j, i]));
+
+    memo[el] ? memo[el].push(i) : (memo[el] = [i]);
+  });
+
+  return pairs;
+};
+
+console.log([1, 4, 6, -1, 7, 3, -4].twoSum()); //[[0,3], [1,6]]
+
+```
