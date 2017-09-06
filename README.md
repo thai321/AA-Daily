@@ -93,6 +93,38 @@
 - W5D2
   - [Polymorphism and Concerns][W5D2-polymorphism-concerns]
 
+[practice-RegexOne]: Practices/Regex/
+
+- W5D3
+  - [RegexOne][practice-RegexOne]
+
+[W5D4-introJS]: homeworks/W5D4/
+
+- W5D4
+  - [Intro JavaScript Problems ][W5D4-introJS]
+
+[W5D5-callback]: homeworks/W5D5/
+- W5D5
+  - [Callbacks and Function Calls][W5D5-callback]
+
+
+[W6D1-canvas]: homeworks/W6D1/canvas_practice/
+[W6D1-DrunkenCircles]: homeworks/W6D1/drunken_circles/
+
+- W6D1
+  - [Intro to Canvas][W6D1-canvas]
+  - [Canvas Demo: DrunkenCircles][W6D1-DrunkenCircles]
+
+[W6D2-Wacky-jQuery]: homeworks/W6D2/wacky_painter_roject/
+
+- W6D2
+  - [Wacky jQuery][W6D2-Wacky-jQuery]
+
+
+[W6D3-Ajax]: homeworks/W6D3/First_AJAX_Request/
+
+- W6D3
+  - [First Ajax Request][W6D3-Ajax]
 -----------
 
 # Daily Project
@@ -284,3 +316,45 @@
 [W4D5-Music-App]: W4D5/MusicApp/
 ## [W4D5][W4D5]
 - [Music App][W4D5-Music-App]
+
+[W5D1]: W5D1/
+[W5D1-GoalApp]: W5D1/GoalApp/
+
+## [W5D1][W5D1]
+- [Goal App][W5D1-GoalApp]
+
+
+[W5D2]: W5D2/
+[W5D2-RedditClone]: W5D2/RedditClone/
+
+## [W5D2][W5D2]
+- [Goal App][W5D2-RedditClone]
+
+
+
+[W5D3]: W5D3/
+[W5D3-RailsLite]: W5D3/RailsLite/
+
+## [W5D3][W5D3]
+- [Rails Lite][W5D3-RailsLite]
+
+
+[W5D4]: W5D4/
+[W5D4-js]: W5D4/intro-js-exercises/
+[W5D4-reversi]: W5D4/reversi/
+
+## [W5D4][W5D4]
+- [Intro JavaScript Exercises][W5D4-js]
+- [Reversi][W5D4-reversi]
+
+
+
+[W5D5]: W5D5/
+[W5D5-callback]: W5D5/intro_to_callbacks/
+[W5D5-hanoi]: W5D5/towers_of_hanoi/
+[W5D5-tic_tac_toe]: W5D5/tic_tac_toe/
+
+## [W5D5][W5D5]
+- [Intro to Callbacks Exercises][W5D5-callback]
+- [Towers of Hanoi][W5D5-hanoi]
+- [Tic-Tac-Toe][W5D5-tic_tac_toe]
