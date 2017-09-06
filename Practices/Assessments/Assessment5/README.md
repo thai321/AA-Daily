@@ -709,7 +709,7 @@ Array.prototype.myFlatten = function() {
   let result = [];
 
   this.forEach(el => {
-    if (el instanceof Array) result = result.concat(el.myFlatten(el));
+    if (el instanceof Array) result = result.concat(el.myFlatten());
     else result.push(el);
   });
   return result;
@@ -1133,10 +1133,11 @@ console.log(primes(4)); // [2,3,5,7]
 ```js
 // Write a recursive function that returns the prime factorization of
 // a given number. Assume num > 1
-
 function isPrime(n) {
   if (n === 1) return false;
-  for (let i = 2; i < n; i++) {
+  if (n === 2) return true;
+
+  for (let i = 2; i <= Math.sqrt(n); i++) {
     if (n % i === 0) return false;
   }
 
@@ -1148,9 +1149,7 @@ const primeFactorization = num => {
   if (num === 2) return [2];
 
   let i = 2;
-  while (!(isPrime(i) && num % i === 0)) {
-    i++;
-  }
+  while (!(isPrime(i) && num % i === 0)) i++;
 
   let result = [i];
   return result.concat(primeFactorization(num / i));
@@ -1158,6 +1157,7 @@ const primeFactorization = num => {
 
 console.log(primeFactorization(12)); // [2,2,3]
 console.log(primeFactorization(600851475143)); // [71,839,1471,6857]
+
 
 ```
 
@@ -1171,7 +1171,7 @@ console.log(primeFactorization(600851475143)); // [71,839,1471,6857]
 //Hint 2: The solution is a bit different than the solution in Ruby!
 
 Array.prototype.quickSort = function(comp) {
-  if (this.length < 2) return this;
+  if (this.length <= 1) return this;
 
   if (typeof comp !== 'function') {
     comp = (x, y) => {
@@ -1376,6 +1376,7 @@ const titleize = title => {
   const special = ['a', 'and', 'of', 'over', 'the'];
 
   let result = title.split(' ').map(word => {
+    word = word.toLowerCase();
     if (special.includes(word)) return word.toLowerCase();
     else return word[0].toUpperCase() + word.slice(1);
   });
@@ -1384,8 +1385,8 @@ const titleize = title => {
   return result[0].toUpperCase() + result.slice(1);
 };
 
-console.log(titleize('the bridge over the river kwai'));
-console.log(titleize('SHADES OF GREY'));
+console.log(titleize('the bridge over the river kwai')); // The Bridge over the River Kwai
+console.log(titleize('SHADES OF GREY')); // Shades of Grey
 
 ```
 
