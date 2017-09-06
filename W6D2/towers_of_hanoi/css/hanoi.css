@@ -1,0 +1,31 @@
+.pile {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  float: left;
+  border: 1px solid black;
+  padding: 15px;
+  height: 150px;
+  width: 50px;
+  margin: 10px;
+}
+
+.pile li {
+  background-color: green;
+  height: 10px;
+  margin: 10px auto;
+  padding: 5px;
+  list-style: none;
+}
+
+.disk-3 {
+  width: 80%;
+}
+.disk-2 {
+  width: 60%;
+}
+.disk-1 {
+  width: 30%;
+}

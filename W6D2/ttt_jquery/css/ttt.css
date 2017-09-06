@@ -1,0 +1,31 @@
+.group li {
+  float: left;
+}
+
+.group {
+  width: 250px;
+  height: 250px;
+}
+
+li {
+  list-style: none;
+  height: 50px;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.unclicked {
+  background-color: gray;
+}
+
+.unclicked:hover {
+  background-color: yellow;
+}
+
+.x {
+  background-color: green;
+}
+
+.o {
+  background-color: red;
+}
