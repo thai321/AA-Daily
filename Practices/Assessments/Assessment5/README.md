@@ -780,6 +780,7 @@ console.log(
 // In the JS exercises, you are required to use myForEach.
 // So make sure you can write this for forEach opposed to a for loop!
 
+
 Array.prototype.myForEach = function(cb) {
   for (i = 0; i < this.length; i++) {
     cb(this[i]);
@@ -787,7 +788,7 @@ Array.prototype.myForEach = function(cb) {
   return;
 };
 
-Array.prototype.myInject = function(cb) {
+Array.prototype.myInject1 = function(cb) {
   let accum = this.shift();
 
   this.myForEach(e => (accum = cb(accum, e)));
@@ -795,16 +796,35 @@ Array.prototype.myInject = function(cb) {
   return accum;
 };
 
+// does not modify the original array
+Array.prototype.myInject2 = function(cb) {
+  let accum = this[0];
+
+  this.slice(1).forEach(e => accum = cb(accum, e));
+
+  return accum;
+};
+
 //tester callback
-let test = [1, 2, 3, 4].myInject(function(a, b) {
+let test = [1, 2, 3, 4].myInject1(function(a, b) {
   return a + b;
 });
-let testMinus = [1, 2, 3, 4].myInject(function(a, b) {
+let testMinus = [1, 2, 3, 4].myInject1(function(a, b) {
   return a - b;
 });
+
+let test2 = [1, 2, 3, 4].myInject2(function(a, b) {
+  return a + b;
+});
+let testMinus2 = [1, 2, 3, 4].myInject2(function(a, b) {
+  return a - b;
+});
+
 console.log(test); // 10
 console.log(testMinus); // -8
 
+console.log(test2); // 10
+console.log(testMinus2); // -8
 
 ```
 
