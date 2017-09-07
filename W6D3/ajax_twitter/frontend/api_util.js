@@ -21,6 +21,15 @@ const APIUtil = {
       dataType: 'JSON',
       success: success
     });
+  },
+
+  createTweet: formcontents => {
+    return $.ajax({
+      url: `http://localhost:3000/tweets`,
+      method: 'POST',
+      dataType: 'JSON',
+      data: formcontents
+    });
   }
 };
 
