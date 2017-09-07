@@ -50,7 +50,6 @@ class DOMNodeCollection {
   }
 
   addClass(name) {
-    debugger;
     this.HTMLElements.forEach(el => {
       el.classList.add(name);
     });
@@ -70,6 +69,37 @@ class DOMNodeCollection {
     });
 
     return children;
+  }
+
+  parent() {
+    let parents = [];
+
+    this.HTMLElements.forEach(el => {
+      parents.push(new DOMNodeCollection(el.parentElement));
+    });
+
+    return parents;
+  }
+
+  find(selector) {
+    let found = [];
+    debugger;
+    this.HTMLElements.forEach(el => {
+      const selections = el.querySelectorAll(selector);
+      if (selections.length > 0) {
+        found = found.concat(Array.from(selections));
+      }
+    });
+
+    return found;
+  }
+
+  remove() {
+    this.HTMLElements.forEach(el => {
+      el.remove();
+    });
+
+    this.HTMLElements = [];
   }
 }
 
