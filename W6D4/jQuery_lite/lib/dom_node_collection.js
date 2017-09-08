@@ -83,7 +83,7 @@ class DOMNodeCollection {
 
   find(selector) {
     let found = [];
-    debugger;
+
     this.HTMLElements.forEach(el => {
       const selections = el.querySelectorAll(selector);
       if (selections.length > 0) {
@@ -100,6 +100,23 @@ class DOMNodeCollection {
     });
 
     this.HTMLElements = [];
+  }
+
+  on(type, callBack) {
+    this.HTMLElements.forEach(el => {
+      el.addEventListener(type, callBack);
+      el[type] = callBack;
+    });
+  }
+
+  off(type) {
+    this.HTMLElements.forEach(el => {
+      Object.keys(el).forEach(key => {
+        if (key === type) {
+          el.removeEventListener(type, el[type]);
+        }
+      });
+    });
   }
 }
 
