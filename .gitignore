@@ -3,3 +3,7 @@
 Gemfile.lock
 
 !homeworks/W6D2/*
+
+node_modules
+bundle.js
+bundle.js.map
