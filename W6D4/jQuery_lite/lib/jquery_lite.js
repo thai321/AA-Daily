@@ -192,7 +192,7 @@ class DOMNodeCollection {
   on(type, callBack) {
     this.HTMLElements.forEach(el => {
       el.addEventListener(type, callBack);
-      el[type] = callBack;
+      el[type].length > 0 ? el[type].push(callBack) : (el[type] = [callBack]);
     });
   }
 
@@ -200,7 +200,7 @@ class DOMNodeCollection {
     this.HTMLElements.forEach(el => {
       Object.keys(el).forEach(key => {
         if (key === type) {
-          el.removeEventListener(type, el[type]);
+          el.removeEventListener(type, el[type].pop());
         }
       });
     });
