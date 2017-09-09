@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { API_WEATHER } from './key';
 
 class Weather extends React.Component {
   constructor() {
@@ -8,8 +9,8 @@ class Weather extends React.Component {
     this.longitude = 0;
 
     this.state = {
-      city: "",
-      temperature: ""
+      city: '',
+      temperature: ''
     };
 
     this.fetchWeather = this.fetchWeather.bind(this);
@@ -29,6 +30,7 @@ class Weather extends React.Component {
 
     const getResponse = () => {
       const response = JSON.parse(wReq.response);
+      console.log(response);
 
       this.setState({
         city: response.name,
@@ -36,11 +38,11 @@ class Weather extends React.Component {
       });
     };
 
-    wReq.addEventListener("load", getResponse);
+    wReq.addEventListener('load', getResponse);
     wReq.open(
-      "GET",
+      'GET',
       `http://api.openweathermap.org/data/2.5/weather?lat=${this
-        .latitude}&lon=${this.longitude}&appid=9c6b279f1c36ece02e7dcff91eb6f67c`
+        .latitude}&lon=${this.longitude}&appid=${API_WEATHER}`
     );
     wReq.send();
   }
@@ -60,7 +62,7 @@ class Weather extends React.Component {
           <h2>
             {city}
             <br />
-            {temperature}
+            {temperature} &#176; C
           </h2>
         </header>
       </div>
@@ -69,5 +71,3 @@ class Weather extends React.Component {
 }
 
 export default Weather;
-
-// a1dec23458f0a5489b722271453ea7a3

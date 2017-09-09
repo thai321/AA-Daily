@@ -7,3 +7,6 @@ Gemfile.lock
 node_modules
 bundle.js
 bundle.js.map
+
+
+key.js
