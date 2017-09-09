@@ -47,7 +47,9 @@ class Calculator extends React.Component {
 
   clear(e) {
     e.preventDefault();
-    this.setState({ num1: '', num2: '', result: 0 });
+    let [num1, num2, result] = ['', '', 0];
+
+    this.setState({ num1, num2, result });
   }
 
   render() {
@@ -83,3 +85,11 @@ class Calculator extends React.Component {
 }
 
 export default Calculator;
+
+
+
+http://api.openweathermap.org/data/find?lat=55.5&lon=37.5&cnt=10&appid=9c6b279f1c36ece02e7dcff91eb6f67
+
+api.openweathermap.org/data/2.5/weather?lat=55.5&lon=37.5&appid=9c6b279f1c36ece02e7dcff91eb6f67c
+
+2.5/weather?q=NY,NY&appid=9c6b279f1c36ece02e7dcff91eb6f67c

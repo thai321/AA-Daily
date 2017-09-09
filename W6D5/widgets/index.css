@@ -1,0 +1,6 @@
+header {
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+}
