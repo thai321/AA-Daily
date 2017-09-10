@@ -11,11 +11,11 @@ class Autocomplete extends React.Component {
   }
 
   handleClick(event) {
-    this.setState({ inputVal: event.currentTarget.innerText });
+    this.setState({ inputVal: event.target.innerText });
   }
 
   handleInput(event) {
-    this.setState({ inputVal: event.currentTarget.value });
+    this.setState({ inputVal: event.target.value });
   }
 
   findName() {

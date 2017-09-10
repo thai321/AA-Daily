@@ -24,3 +24,47 @@ ul li:hover {
   position: fixed;
   right: 20px;
 }
+
+.tabs {
+  margin: 20px;
+  width: 250px;
+  height: 300px;
+  border: 2px solid orange;
+  text-align: center;
+}
+
+.tabs-ul {
+  color: green;
+  display: flex;
+}
+
+.tabs-ul li {
+  width: 65px;
+  border-top: 2px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 4px;
+  text-align: center;
+  cursor: pointer;
+  background-color: lightpink;
+  list-style: none;
+  float: left;
+}
+.tabs-ul li:hover {
+  background-color: black;
+}
+
+.tabs-ul .active {
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  border: 1px solid black;
+}

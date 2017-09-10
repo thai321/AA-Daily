@@ -20,7 +20,6 @@ class Weather extends React.Component {
     navigator.geolocation.getCurrentPosition(position => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
-      console.log(this.latitude, this.longitude);
       this.fetchWeather();
     });
   }
@@ -30,7 +29,6 @@ class Weather extends React.Component {
 
     const getResponse = () => {
       const response = JSON.parse(wReq.response);
-      console.log(response);
 
       this.setState({
         city: response.name,

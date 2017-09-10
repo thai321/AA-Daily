@@ -3,7 +3,6 @@ import React from 'react';
 class Clock extends React.Component {
   constructor() {
     super();
-    console.log('hello');
     this.tickerId = 0;
 
     this.state = {
@@ -20,7 +19,6 @@ class Clock extends React.Component {
   }
 
   componentDidMount() {
-    console.log('helllo');
     const ticker = setInterval(this.tick, 1000);
   }
 
