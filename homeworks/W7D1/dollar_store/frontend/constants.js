@@ -1,0 +1,1 @@
+export const SWITCH_CURRENCY = 'SWITCH_CURRENCY';
