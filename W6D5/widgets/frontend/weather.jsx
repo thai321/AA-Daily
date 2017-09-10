@@ -52,8 +52,7 @@ class Weather extends React.Component {
 
     return (
       <div>
-        <hi>Hi Dillon!</hi>
-        <header>
+        <header className="header-auto">
           <h2>
             City:
             <br />

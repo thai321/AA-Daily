@@ -4,3 +4,23 @@ header {
   justify-content: space-between;
   background-color: orange;
 }
+
+.header-auto {
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  background-color: green;
+}
+
+ul li:hover {
+  cursor: pointer;
+}
+
+.autocomplete {
+  background-color: yellow;
+  margin: 20px;
+  width: 250px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+}

@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 class Clock extends React.Component {
   constructor() {
     super();
-    console.log("hello");
+    console.log('hello');
     this.tickerId = 0;
 
     this.state = {
@@ -14,13 +14,13 @@ class Clock extends React.Component {
   }
 
   tick() {
-    console.log("ticktick");
+    console.log('ticktick');
     this.tickerId += 1;
     this.setState({ time: new Date() });
   }
 
   componentDidMount() {
-    console.log("helllo");
+    console.log('helllo');
     const ticker = setInterval(this.tick, 1000);
   }
 
@@ -37,7 +37,6 @@ class Clock extends React.Component {
     const GMT = this.state.time.toGMTString();
     return (
       <div>
-        <h1>Hi Thai!</h1>
         <header>
           <h2>
             Time:
