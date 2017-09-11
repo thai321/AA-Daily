@@ -133,6 +133,46 @@
 
 - W6D3
   - [First Ajax Request][W6D3-Ajax]
+
+[W6D4hw-Vanilla-Dom]: homeworks/W6D4/vanilla_DOM_manipulation/
+
+- W6D4
+  - [Vanilla DOM Manipulation][W6D4hw-Vanilla-Dom]
+
+
+[W6D5hw-npm]: homeworks/W6D5/getting_started_with_NPM/
+[W6D4hw-caculator]: homeworks/W6D5/calculator/
+
+- W6D5
+  - [Getting Started with NPM][W6D5hw-npm]
+  - [React Calculator][W6D4hw-caculator]
+
+
+### Week 7
+
+[W7D1hw-dollar-store]: homeworks/W7D1/dollar_store/
+
+- W7D1
+  - [Dollar Store][W7D1hw-dollar-store]
+
+
+[W7D2hw-middleware]: homeworks/W7D2/Redux_Homework_Intro_to_Middleware/
+
+- W7D2
+  - [Middleware][W7D2hw-middleware]
+
+
+[W7D3hw-giphy]: homeworks/W7D3/giphy_search/
+
+- W7D3
+  - [Giphy][W7D3hw-giphy]
+
+
+[W7D4hw-rainbow-routes]: homeworks/W7D4/rainbow_routes
+- W7D4
+  - [Rainbow Routes][W7D4hw-rainbow-routes]
+
+
 -----------
 
 # Daily Project
@@ -400,3 +440,23 @@
 - [Tic Tac Toe][W6D2-Tic-Tac-Toe]
 - [Tower of Hanoi][W6D2-HaNoi]
 - [Snake][W6D2-Snake]
+
+
+[W6D3]: W6D3/
+[W6D-Ajax-Twitter]: W6D3/ajax_twitter/
+
+### [W6D3][W6D3]
+- [Ajax Twitter][W6D-Ajax-Twitter]
+
+
+[W6D4]: W6D4/
+[W6D4-JQuery-lite]: W6D4/jQuery_lite/
+
+### [W6D4][W6D4]
+- [JQuery Lite][W6D4-JQuery-lite]
+
+[W6D5]: W6D5/
+[W6D5-widgets]: W6D5/widgets/
+
+### [W6D5][W6D5]
+- [Widgets][W6D5-widgets]
