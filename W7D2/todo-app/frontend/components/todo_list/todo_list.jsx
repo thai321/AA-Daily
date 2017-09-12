@@ -8,6 +8,10 @@ class TodoList extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
+
   render() {
     return (
       <div>
@@ -22,7 +26,7 @@ class TodoList extends React.Component {
             />
           )}
         </ul>
-        <TodoForm receiveTodo={this.props.receiveTodo} />
+        <TodoForm createTodo={this.props.createTodo} />
       </div>
     );
   }
