@@ -1,5 +1,7 @@
 import React from 'react';
+
 import TodoListItem from './todo_list_item';
+import TodoForm from './todo_form';
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -9,15 +11,19 @@ class TodoList extends React.Component {
   }
 
   render() {
-    console.log('props', this.props.todos[0].title);
     return (
       <div>
         <h1>Todo List Component</h1>
         <ul>
           {this.props.todos.map(todo =>
-            <TodoListItem key={todo.id + todo.title} todo={todo} />
+            <TodoListItem
+              key={todo.id + todo.title}
+              todo={todo}
+              removeTodo={this.props.removeTodo}
+            />
           )}
         </ul>
+        <TodoForm receiveTodo={this.props.receiveTodo} />
       </div>
     );
   }

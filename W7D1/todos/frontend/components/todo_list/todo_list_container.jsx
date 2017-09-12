@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import TodoList from './todo_list';
-// importt
+import { receiveTodo, removeTodo } from '../../actions/todo_actions';
 
+// state avaliable for TodoList
 const mapStateToProps = state => ({
   todos: allTodos(state)
 });
 
+// action function avaliable for TodoList
 const mapDispatchToProps = dispatch => ({
-  receiveTodo: todo => dispatch(receiveTodo(todo))
+  receiveTodo: todo => dispatch(receiveTodo(todo)),
+  removeTodo: todo => dispatch(removeTodo(todo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
