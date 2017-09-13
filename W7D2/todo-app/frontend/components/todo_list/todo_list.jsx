@@ -16,13 +16,19 @@ class TodoList extends React.Component {
     return (
       <div>
         <h1>Todo List Component</h1>
+        {this.props.errors.map((err, idx) =>
+          <h2 key={idx + err}>
+            {err}
+          </h2>
+        )}
+
         <ul>
           {this.props.todos.map(todo =>
             <TodoListItem
               key={todo.id + todo.title}
               todo={todo}
-              removeTodo={this.props.removeTodo}
               updateTodo={this.props.updateTodo}
+              deleteTodo={this.props.deleteTodo}
             />
           )}
         </ul>

@@ -14,7 +14,7 @@ class TodoListItem extends React.Component {
   }
 
   handleRemove() {
-    this.props.removeTodo(this.props.todo);
+    this.props.deleteTodo(this.props.todo);
   }
 
   handleDone() {
@@ -33,7 +33,7 @@ class TodoListItem extends React.Component {
     const { hide } = this.state;
     const { todo } = this.props;
 
-    if (hide) return <ToDoDetailView todo={todo} />;
+    if (hide) return <ToDoDetailView key={todo.title + hide} todo={todo} />;
   }
 
   render() {
@@ -41,16 +41,14 @@ class TodoListItem extends React.Component {
     const { todo } = this.props;
 
     return (
-      <div>
-        <li>
-          {title}
-          <button onClick={this.handleRemove}>remove</button>
-          <button onClick={this.handleDone}>
-            {this.displayDone()}
-          </button>
-          {this.displayDetail()}
-        </li>
-      </div>
+      <li>
+        {title}
+        <button onClick={this.handleRemove}>remove</button>
+        <button onClick={this.handleDone}>
+          {this.displayDone()}
+        </button>
+        {this.displayDetail()}
+      </li>
     );
   }
 }

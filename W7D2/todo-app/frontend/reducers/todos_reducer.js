@@ -29,26 +29,21 @@ const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_TODO:
       nextState = merge({}, state);
+      // if (state.includes(action.todo.id))
       nextState[action.todo.id] = action.todo;
 
       return nextState;
     case RECEIVE_TODOS:
       nextState = {};
-      Object.keys(action.todos).map(id => {
-        nextState[id] = action.todos[id];
+
+      action.todos.forEach(todo => {
+        nextState[todo.id] = todo;
       });
 
       return nextState;
     case REMOVE_TODO:
       nextState = merge({}, state);
       delete nextState[action.todo.id];
-      return nextState;
-
-    case UPDATE_TODO:
-      nextState = merge({}, state);
-      nextState[action.todo.id] = action.todo;
-      // const currentTodo = nextState[action.todo.id];
-      // currentTodo.done = action.todo.done;
       return nextState;
 
     default:

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveTodos = receiveTodos;
   window.receiveTodo = receiveTodo;
   window.removeTodo = removeTodo;
-  window.allTodos = allTodos;
+  // window.allTodos = allTodos;
   window.fetchTodos = fetchTodos;
 
   window.getTodos = getTodos;

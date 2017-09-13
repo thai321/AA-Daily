@@ -17,6 +17,7 @@ class Api::TodosController < ApplicationController
   end
 
   def update
+
     @todo = Todo.find(params[:id])
     if @todo.update_attributes(todo_params)
       render json: @todo
@@ -28,36 +29,10 @@ class Api::TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    render :index
+    render json: @todo
   end
 
   def todo_params
     params.require(:todo).permit(:title, :body, :done)
   end
 end
-
-
-=begin
-@todo ={
-
-id:
-title:
-body:
-done:
-}
-
-let data = {todo:
-            {
-              title: 'cat2',
-              body: 'Kity'
-            }
-          }
-
-$.ajax({
-  type: "POST",
-  url: url,
-  data: data,
-}).then(todo => console.log(todo));
-
-
-=end

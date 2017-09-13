@@ -4,18 +4,20 @@ import {
   createTodo,
   removeTodo,
   updateTodo,
-  fetchTodos
+  fetchTodos,
+  deleteTodo
 } from '../../actions/todo_actions';
-
+import { allTodos } from '../../reducers/selectors';
 // state avaliable for TodoList
 const mapStateToProps = state => ({
-  todos: allTodos(state)
+  todos: allTodos(state), // this return an array
+  errors: state.errors
 });
 
 // action function avaliable for TodoList
 const mapDispatchToProps = dispatch => ({
   createTodo: todo => dispatch(createTodo(todo)),
-  removeTodo: todo => dispatch(removeTodo(todo)),
+  deleteTodo: todo => dispatch(deleteTodo(todo)),
   updateTodo: todo => dispatch(updateTodo(todo)),
   fetchTodos: () => dispatch(fetchTodos())
 });
