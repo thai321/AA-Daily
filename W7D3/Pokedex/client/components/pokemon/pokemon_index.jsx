@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class PokemonIndex extends React.Component {
   constructor(props) {
@@ -13,12 +13,14 @@ class PokemonIndex extends React.Component {
   }
 
   displayPokemon() {
-    const pokemon = this.props.pokemon.map(poke => (
+    const pokemon = this.props.pokemon.map(poke =>
       <li key={poke.name}>
-        <h2>{poke.name}</h2>
+        <h2>
+          {poke.name}
+        </h2>
         <img src={poke.image_url} />
       </li>
-    ));
+    );
 
     return pokemon;
   }
@@ -26,7 +28,7 @@ class PokemonIndex extends React.Component {
   render() {
     return (
       <div>
-        <ul>{this.displayPokemon()}</ul>
+        <ul>{this.displayPokemon()}</ul>li>)}
       </div>
     );
   }
