@@ -371,7 +371,7 @@ strong {
 }
 
 ```
-- Fuild Float Grid
+## CSS Fuild Float Grid
 
 ```css
 
@@ -389,6 +389,12 @@ ul {
 body {
   font-family: sans-serif;
   background: url('htpp//...');
+
+  /* parent's width */
+  /*width: 900px;*/
+  width: 80%;
+
+  margin-left: 0 auto;
 }
 
 header, aside, section {
@@ -396,8 +402,64 @@ header, aside, section {
 }
 
 
+h1 {
+  float: left;
+}
+
 header ul li {
   float: left;
+  margin-right: 10px;
+}
+
+header ul {
+  float: right;
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+
+/*div col col-1-3*/
+aside {
+  width: 33.33%; /* 300px;*/
+  /*float: left;*/
+  /*padding: 10px;*/
+
+  /*box-sizing: border-box;*/
+  /*The padding of content is calculated */
+}
+
+
+/*div col col-2-3*/
+section {
+  width: 66.66%; /*600px;*/
+  /*float: left;*/
+  /*padding: 10px;*/
+
+  /*box-sizing: border-box;*/
+  /*The padding of content is calculated */
+}
+
+/* Grid */
+
+.col {
+  float: left;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+/* section (main Content)'s width to fit its parent width */
+.col:last-of-type {
+  padding: 0;
+}
+
+.col-1-3 {
+  width: 33.33%
+}
+
+.col-2-3 {
+  width: 66.66%
 }
 
 .cf:after {
@@ -406,4 +468,111 @@ header ul li {
   display: block;
 }
 
+```
+
+------
+
+## 08-css-float
+
+
+```html
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Float</title>
+  </head>
+
+  <style>
+    h1 {
+      display: block;
+      background: yellow;
+    }
+
+
+    p {
+      display: block;
+      background: orange;
+    }
+
+
+    article {
+      margin: 50px;
+      background: blue;
+      border: 10px solid red;
+
+      clear: left;
+    }
+
+    img {
+      display: block;
+      width: 300px;
+      height: 400px;
+
+      float: left;
+      /*float: right;*/
+
+      opacity: 0.5;
+    }
+
+    .stop-float {
+      background: green;
+
+      display: float;
+      /*clear: left;*/
+      clear: both;
+    }
+
+    /* put on any container in which we want to clear something */
+    .pseudo-stop-float:after {
+      /*content: "Stop the Float";*/
+      content: "";
+      background: green;
+
+      display: block;
+
+      /*clear: left;*/
+      clear: both;
+    }
+
+    /* clearfix */
+    .group:after {
+      content: '';
+      display: block;
+      clear:both;
+    }
+
+  </style>
+  <body>
+
+    <!-- <article class="pseudo-stop-float"> -->
+    <article class="group">
+
+
+    <h1>Cats</h1>
+
+    <img src='cat.jpg' alt="cat">
+
+
+    <img src='cat.jpg' alt="cat">
+    <img src='cat.jpg' alt="cat">
+
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="stop-float">Stop the Float</div>
+
+  </article>
+
+  <article class="group">
+
+    <h1>Lasers</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  </article>
+
+  </body>
+</html>
 ```
