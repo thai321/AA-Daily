@@ -10,5 +10,6 @@ bundle.js.map
 
 
 key.js
+secrets.yml
 
 package-lock.json
