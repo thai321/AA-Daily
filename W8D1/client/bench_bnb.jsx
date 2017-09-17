@@ -6,7 +6,8 @@ import Root from './components/root';
 import * as SessionUtil from './util/session_api_util';
 import * as BenchUtil from './util/bench_api_util';
 
-import * as Actions from './actions/session_actions';
+import * as SessionActions from './actions/session_actions';
+import * as BenchActions from './actions/bench_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -26,10 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.Actions = Actions;
-
   window.SessionUtil = SessionUtil;
   window.BenchUtil = BenchUtil;
+
+  window.SessionActions = SessionActions;
+  window.BenchActions = BenchActions;
 
   ReactDOM.render(<Root store={store} />, root);
 });
