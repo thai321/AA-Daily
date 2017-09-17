@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: benches
+#
+#  id          :integer          not null, primary key
+#  description :string
+#  lat         :float
+#  lng         :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  lat: 1.5
+  lng: 1.5
+
+two:
+  description: MyString
+  lat: 1.5
+  lng: 1.5
