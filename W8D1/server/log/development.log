@@ -8995,3 +8995,27 @@ Processing by Api::BenchesController#index as JSON
 Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-16 23:57:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5NV-OXUGUEYP63PeboO7JA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (56.3ms)
+Completed 200 OK in 637ms (Views: 624.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/api/benches" for 127.0.0.1 at 2017-09-16 23:57:10 -0700
+Processing by Api::BenchesController#index as JSON
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (5.9ms)[0m  [1m[34mSELECT "benches".* FROM "benches"[0m
+  Rendered api/benches/_bench.json.jbuilder (0.7ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/_bench.json.jbuilder (0.1ms)
+  Rendered api/benches/index.json.jbuilder (21.5ms)
+Completed 200 OK in 30ms (Views: 21.1ms | ActiveRecord: 5.9ms)
+
+

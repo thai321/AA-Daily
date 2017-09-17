@@ -5,8 +5,15 @@ export default class MarkerManager {
   }
 
   updateMarkers(benches) {
+    const benchesObject = {};
+    benches.forEach(bench => (benchesObject[bench.id] = bench));
+
     benches.forEach(bench => {
       if (!this.markers[bench.id]) this.createMarkerFromBench(bench);
+    });
+
+    this.markers.forEach(marker => {
+      if (!benchesObject[marker.benchId]) this.removemarker(marker);
     });
   }
 
@@ -18,5 +25,9 @@ export default class MarkerManager {
       myLatlng,
       map: this.map
     });
+  }
+
+  removemarker(marker) {
+    delete this.markers[marker.benchId];
   }
 }
