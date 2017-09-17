@@ -11,7 +11,7 @@ module BenchBNB
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config_files = ['secrets.yml']
+    config_files = ['secrets_backup.yml']
     config_files.each do |file_name|
       file_path = File.join(Rails.root, 'config', file_name)
       config_keys = HashWithIndifferentAccess.new(YAML::load(IO.read(file_path)))[Rails.env]
