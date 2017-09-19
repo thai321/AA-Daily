@@ -1,11 +1,12 @@
 import React from 'react';
 
 import BenchIndexItem from './bench_index_item';
+import { updateFilter } from '../../actions/bench_actions';
 
 class BenchIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchBenches();
-  }
+  // componentDidMount() {
+  //   this.props.fetchBenches();
+  // }
 
   render() {
     if (Object.keys(this.props.benches).length === 0) {

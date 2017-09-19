@@ -8,6 +8,7 @@ import * as BenchUtil from './util/bench_api_util';
 
 import * as SessionActions from './actions/session_actions';
 import * as BenchActions from './actions/bench_actions';
+import MarkerManager from './util/marker_manager';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.SessionActions = SessionActions;
   window.BenchActions = BenchActions;
+  window.MarkerManager = MarkerManager;
 
   ReactDOM.render(<Root store={store} />, root);
 });

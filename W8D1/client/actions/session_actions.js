@@ -14,7 +14,9 @@ export const receiveErrors = errors => ({
 });
 
 export const login = formUser => dispatch => {
-  return Util.login(formUser).then(user => dispatch(receiveCurrentUser(user)));
+  return Util.login(formUser)
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .fail(errors => dispatch(receiveErrors(errors)));
 };
 
 export const logout = () => dispatch => {
@@ -22,5 +24,7 @@ export const logout = () => dispatch => {
 };
 
 export const signup = formUser => dispatch => {
-  return Util.signup(formUser).then(user => dispatch(receiveCurrentUser(user)));
+  return Util.signup(formUser)
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .fail(errors => dispatch(receiveErrors(errors)));
 };

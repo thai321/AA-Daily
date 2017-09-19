@@ -1,4 +1,4 @@
-export default class MarkerManager {
+class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
@@ -12,8 +12,8 @@ export default class MarkerManager {
       if (!this.markers[bench.id]) this.createMarkerFromBench(bench);
     });
 
-    this.markers.forEach(marker => {
-      if (!benchesObject[marker.benchId]) this.removemarker(marker);
+    Object.keys(this.markers).forEach(benchId => {
+      if (benchesObject[benchId]) this.removeMarker(this.markers[benchId]);
     });
   }
 
@@ -22,12 +22,18 @@ export default class MarkerManager {
 
     const marker = new google.maps.Marker({
       benchId: bench.id,
-      myLatlng,
+      position: myLatlng,
       map: this.map
     });
+
+    // this.map[bench.id] = marker;
+    marker.setMap(this.map);
+    this.markers[bench.id] = marker;
   }
 
-  removemarker(marker) {
+  removeMarker(marker) {
     delete this.markers[marker.benchId];
   }
 }
+
+export default MarkerManager;

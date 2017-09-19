@@ -1,4 +1,4 @@
-import { UPDATE_BOUNDS } from '../actions/filter_actions';
+import { UPDATE_BOUNDS, UPDATE_FILTER } from '../actions/filter_actions';
 
 // const _defaultFilter = {
 //   bounds: {}
@@ -11,6 +11,12 @@ const FilterReducer = (state = {}, action) => {
       // const newFilter = {};
       // return Object.assign({}, state);
       return action.bounds;
+
+    case UPDATE_FILTER:
+      const newFilter = {
+        [action.filter]: action.value
+      };
+      return Object.assign({}, state, newFilter);
     default:
       return state;
   }
