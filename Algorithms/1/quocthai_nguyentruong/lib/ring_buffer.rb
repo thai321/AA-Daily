@@ -57,6 +57,16 @@ class RingBuffer
     (@start_idx + index) % @capacity
   end
 
+  def max
+    max_value = @store[0]
+    (0...@length).each do |i|
+      if @store[offset(i)] > max_value
+        max_value = @store[offset(i)]
+      end
+    end
+    max_value
+  end
+
   protected
   attr_accessor :capacity, :start_idx, :store
   attr_writer :length
