@@ -37,14 +37,14 @@ class HashSet
   end
 
   def resize!
-    new_store = HashSet.new(num_buckets * 2)
+    new_hash_set = HashSet.new(num_buckets * 2)
 
     @store.each do |bucket|
       bucket.each do |el|
-        new_store.insert(el)
+        new_hash_set.insert(el)
       end
     end
 
-    @store = new_store.store
+    @store = new_hash_set.store
   end
 end
