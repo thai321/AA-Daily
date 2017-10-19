@@ -85,3 +85,45 @@
 
 #### Submit
 - Fullstack project and JS proposal due 9AM
+
+-----
+## Talent Match
+
+
+I am a quick-learner, and a software engineer. My technical skills include: React, React Native, Redux, GraphQL, Apollo, HTML, CSS, JavaScript, Node JS, SQL, NoSQL , Unix, Data Structures and Algorithms. I enjoy solving complex problems and work on projects. Strong engineering professional with a Bachelor's degree focused in Computer Science from University of California, Berkeley.
+
+Projects:
+
+Guidance (Rails, React/Flex)
+A web application allowing users to show off their project inspired by Instructables.
+_ Secured authentication by hashing and salting passwords with BCrypt Ruby gem.
+_ Integrated Quill.js library to render powerful text editor for text-formatting including syntax/code and images
+_ Uploaded images by using Paperclip Ruby gem and hosting them on AWS.
+_ Classify guides into tags and categories.
+
+Redeemify
+A platform that allows customers, typically purchasers of an e-textbook, to redeem a bundle of promo codes from vendor partner.
+_ Collaborated with 6 software engineering students to design &amp; build “Redeemiby” site for Armando Fox, Professor, Software Engineer, UC Berkeley.
+_ Project won “Most Likely to Turn into a Tech Startup.”
+_ Proficiency in HTML, CSS, JavaScript, Ruby On Rails, Photoshop, Heroku, Github to ensure high quality functionality helping users navigate services efficiently.
+
+PacMan with AI (Machine Learning)
+A PacMan game
+_ Worked in a group of two students on a large project using Python.
+_ Built a PACMAN agent using many search algorithms in Uninformed, Heuristic Search, Local Search, Adversarial Search.
+_ Taught PACMAN sources improving knowledge using: Logical Planning, Reinforcement,
+Bayes’ Nets, Q-learning.
+
+PacMan with AI (Machine Learning)
+A PacMan game
+_ Worked in a group of two students on a large project using Python.
+_ Built a PACMAN agent using many search algorithms in Uninformed, Heuristic Search, Local Search, Adversarial Search.
+_ Taught PACMAN sources improving knowledge using: Logical Planning, Reinforcement,
+Bayes’ Nets, Q-learning.
+
+
+
+
+React, React Native, Redux, GraphQL, HTML, CSS, JavaScript, Node JS, SQL, Algorithms
+
+I enjoy solving complex problems. Engineering BS degree focused in Computer Science from UC Berkeley

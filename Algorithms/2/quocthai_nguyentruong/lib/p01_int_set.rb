@@ -95,14 +95,14 @@ class ResizingIntSet
   end
 
   def resize!
-    new_store = ResizingIntSet.new(num_buckets * 2)
+    new_set = ResizingIntSet.new(num_buckets * 2)
     @store.each do |bucket|
       bucket.each do |el|
-        new_store.insert(el)
+        new_set.insert(el)
       end
     end
 
-    @store = new_store.store
+    @store = new_set.store
   end
-  
+
 end
